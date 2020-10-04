@@ -1,0 +1,14 @@
+extends layouts/default
+include helpers/mixins
+
+block variables
+	- const title = "Kaleydo"
+
+block content
+	include ../blocks/modules/header/header
+
+	+header({})
+
+block scripts
+	script(src="js/main.js")
+	script(src="js/vendor.js")

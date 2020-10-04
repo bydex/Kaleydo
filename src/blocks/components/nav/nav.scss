@@ -1,0 +1,36 @@
+.nav {
+    &__links {
+    }
+    &__item {
+        text-align: center;
+    }
+    &__link {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        color: inherit;
+        font-size: 42px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: {
+            duration: .3s;
+            property: color;
+        }
+    }
+    &__item:first-child .nav__link {
+        padding-top: 0;
+    }
+    &__item:last-child .nav__link {
+        padding-bottom: 0;
+    }
+    &__link:hover {
+        color: $red;
+    }
+    &__link:active {
+        transform: translateY(1px);
+    }
+    &_active {
+    }
+}

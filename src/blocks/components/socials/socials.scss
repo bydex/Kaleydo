@@ -1,0 +1,53 @@
+.socials {
+    @include row-flex();
+    justify-content: center;
+    align-items: center;
+
+    &__item {
+        @include col();
+        border-radius: 50%;
+    }
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 46px;
+        height: 46px;
+    }
+    &__link:active {
+        transform: translateY(1px);
+    }
+    &__img {
+        display: block;
+        max-width: 46px;
+        max-height: 46px;
+        fill: $light;
+        transition: {
+            property: fill;
+            duration: .3s;
+        };
+    }
+    &__link:hover .socials__img {
+        fill: $red;
+    }
+}
+.socials_small {
+    margin: {
+        right: -10px;
+        left: -10px;
+    }
+    .socials__item {
+        margin: {
+            right: 10px;
+            left: 10px;
+        }
+    }
+    .socials__link {
+        width: 20px;
+        height: 20px;
+    }
+    .socials__img {
+        max-width: 20px;
+        max-height: 20px;
+    }
+}

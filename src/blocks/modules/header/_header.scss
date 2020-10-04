@@ -1,0 +1,47 @@
+.header {
+    position: relative;
+    color: $light;
+    background-color: $dark;
+
+    &__wrapper {
+        @include container();
+        padding: {
+            top: 80px;
+            bottom: 80px;
+        }
+    }
+    &__inner {
+        @include row-flex();
+    }
+    &__text {
+        @include col();
+        @include size(6);
+    }
+    &__gallery {
+        @include col();
+        @include size(6);
+    }
+    &__title {
+        @include h1();
+        margin-bottom: 16px;
+        line-height: 124%;
+    }
+    &__subtitle {
+        @include h3();
+    }
+    &__title-block {
+        margin-bottom: 72px;
+    }
+    &__advantages {
+        margin-bottom: 52px;
+    }
+    &__mouse {
+        position: absolute;
+        left: 50%;
+        bottom: 60px;
+        transform: translateX(-50%);
+        max-width: 24px;
+        max-height: 57px;
+        cursor: pointer;
+    }
+}

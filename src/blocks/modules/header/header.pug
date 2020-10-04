@@ -1,0 +1,112 @@
+mixin header({className = false})
+    include ../../components/hamburger/hamburger
+    include ../../components/nav/nav
+    include ../../components/socials/socials
+    include ../../components/advantages/advantages
+    header.header(class=className)
+        .nav-row
+            .nav-row__hamburger
+                +hamburger({className: 'nav-row__hamburger'})
+            .nav-row__info
+                +socials({className: 'socials_small nav-row__socials'})
+                button.btn.btn_small.nav-row__button Заказать
+        .modal-b
+            .modal-b__wrapper
+                .modal-b__inner
+                    .modal-b__nav-wrapper.nav-wrapper
+                        +nav({className: 'nav-wrapper__nav'})
+                        +socials({className: 'nav-wrapper__socials'})
+                        .modal-b__button-wrapper
+                            button.btn.nav-wrapper__button Заказать
+        .top-section
+            .top-section__inner
+                a.top-section__logo-wrapper(href="/")
+                    +iconImg({iconName: 'logo',
+                            className: 'top-section__logo'})
+                .top-section__description Устройство, которое определяет цвета с любой поверхности
+        .header__wrapper
+            .header__inner
+                .header__text
+                    .header__title-block
+                        h1.header__title Просканируй при помощи <mark class="mark">Kaleydo EVO mini</mark> любой цвет
+                        p.header__subtitle который привлек ваше внимание
+                    +advantages({className: 'header__advantages'})
+                    .more-info.more-info_disabled(class="header__more-info")
+                        .more-info__top
+                            .more-info__icon-wrapper
+                                +icon({iconName: 'arrow-down', className: 'more-info__icon'})
+                            h4.more-info__title Больше информации
+                            .more-info__icon-wrapper
+                                +icon({iconName: 'arrow-down', className: 'more-info__icon'})
+                        .more-info__dropdown
+                            a.download-link.more-info__link(href="#" download)
+                                | Скачать BROCHURE KALEYDO_EVO_ENG - 523Кб
+                                +icon({iconName: 'pdf', className: 'download-link__icon'})
+                            a.download-link.more-info__link(href="#" download)
+                                | Скачать KALEYDO_Evo_eng - 2,61 Мб
+                                +icon({iconName: 'pdf', className: 'download-link__icon'})
+                .header__gallery
+                    .gallery
+                        .gallery__img-wrapper.glide
+                            .gallery__arrows(data-glide-el='controls')
+                                button.gallery__arrow.gallery__arrow_left(data-glide-dir='<')
+                                    +icon({iconName: 'arrow-left', className: 'gallery__arrow-inner'})
+                                button.gallery__arrow.gallery__arrow_right(data-glide-dir='>')
+                                    +icon({iconName: 'arrow-right', className: 'gallery__arrow-inner'})
+                            .gallery__img-track.glide__track(data-glide-el="track")
+                                ul.gallery__img-slides.glide__slides
+                                    li.gallery__img-item.gallery__img-item_0.glide__slide
+                                        img.gallery__img(src="./img/gallery-1.png" alt="")
+                                    li.gallery__img-item.gallery__img-item_1.glide__slide
+                                        img.gallery__img(src="./img/gallery-2.png" alt="")
+                                    li.gallery__img-item.gallery__img-item_2.glide__slide
+                                        img.gallery__img(src="./img/gallery-3.png" alt="")
+                        .gallery__info-wrapper.glide
+                            .gallery__dots(data-glide-el='controls[nav]')
+                                button.gallery__dot(data-glide-dir='=0')
+                                    +icon({iconName: 'kaleydo-icon', className: 'gallery__dot-icon'})
+                                button.gallery__dot(data-glide-dir='=1')
+                                    +icon({iconName: 'gallery-icon-2', className: 'gallery__dot-icon'})
+                                button.gallery__dot(data-glide-dir='=2')
+                                    +icon({iconName: 'kaleydo-icon', className: 'gallery__dot-icon'})
+                                    | +
+                                    +icon({iconName: 'gallery-icon-2', className: 'gallery__dot-icon'})
+                            .gallery__info-track.glide__track(data-glide-el="track")
+                                ul.gallery__info-slides.glide__slides
+                                    li.gallery__info-item
+                                        .gallery__title-wrapper
+                                            h3.gallery__title Kaleydo Evo mini
+                                        .gallery__info
+                                            .gallery__price-wrapper
+                                                p.gallery__price
+                                                    | €400.00 EUR
+                                                    +iconImg({iconName: 'coupon', className: 'gallery__price-icon'})
+                                                p.gallery__price-old €500.00 EUR
+                                            button.gallery__button.btn Заказать
+                                        p.gallery__set
+                                            +iconImg({iconName: 'check', className: 'gallery__set-icon'})
+                                            | В комплект входит: Kaleydo Evo mini, micro USB кабель, ремешок
+                                    li.gallery__info-item
+                                        .gallery__title-wrapper
+                                            h3.gallery__title Каталог Alcea
+                                        .gallery__info
+                                            .gallery__price-wrapper
+                                                p.gallery__price
+                                                    | €150.00 EUR
+                                                    +iconImg({iconName: 'coupon', className: 'gallery__price-icon'})
+                                                p.gallery__price-old €200.00 EUR
+                                            button.gallery__button.btn Заказать
+                                    li.gallery__info-item
+                                        .gallery__title-wrapper
+                                            h3.gallery__title Kaleydo Evo mini + КаталогAlcea
+                                        .gallery__info
+                                            .gallery__price-wrapper
+                                                p.gallery__price
+                                                    | €150.00 EUR
+                                                    +iconImg({iconName: 'coupon', className: 'gallery__price-icon'})
+                                                p.gallery__price-old €200.00 EUR
+                                            button.gallery__button.btn Заказать
+                                        p.gallery__set
+                                            +iconImg({iconName: 'check', className: 'gallery__set-icon'})
+                                            | В комплект входит: Kaleydo Evo mini, micro USB кабель, ремешок + Каталог Alcea
+            +icon({iconName: 'mouse', className: 'header__mouse'})

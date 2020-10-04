@@ -1,0 +1,14 @@
+mixin socials({className})
+    ul.socials(class=className)
+        li.socials__item.socials__item_instagram
+            a.socials__link(href="#")
+                +icon({
+                    className: 'svg-icon socials__img',
+                    iconName: 'instagram'
+                })
+        li.socials__item.socials__item_whatsapp
+            a.socials__link(href="#")
+                +icon({
+                    className: 'svg-icon socials__img',
+                    iconName: 'whatsapp'
+                })

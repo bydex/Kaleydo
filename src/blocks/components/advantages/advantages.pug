@@ -1,0 +1,28 @@
+mixin advantages({className = false})
+    .advantages(class=className)
+        -
+            let advantages = [
+                {
+                    icon: 'pen',
+                    title: 'Всегда под рукой',
+                    description: 'Легкий и меньше мяча настольного тенниса'
+                },
+                {
+                    icon: 'phone',
+                    title: 'Умный',
+                    description: 'Подключается к приложению IOS и Android через Bluetooth'
+                },
+                {
+                    icon: 'cup',
+                    title: 'Престижный дизайн',
+                    description: 'Является обладателем наград в конкурсах Red Dot Award и German Design Award'
+                },
+            ];
+        ul.advantages__list
+            each val, index in advantages
+                li.advantages__item
+                    .advantages__img-wrapper
+                        +icon({iconName: `advantage-${val.icon}`, className: 'advantages__img'})
+                    .advantages__text
+                        h4.advantages__title= val.title
+                        p.advantages__description= val.description
