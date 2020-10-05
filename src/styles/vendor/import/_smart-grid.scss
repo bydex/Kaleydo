@@ -39,7 +39,7 @@ $fields: 0.9375rem;
 }
 
 @mixin container(){
-    max-width: 1170px;
+    max-width: 1200px;
     margin: 0 auto;
     @include container-full();
 }

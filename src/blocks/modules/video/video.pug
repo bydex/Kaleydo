@@ -1,0 +1,14 @@
+mixin video({className = false})
+    section.video(class=className id="video")
+        img.video__background(src="./img/video-img.png")
+        video(src="./")
+        .video__wrapper
+            .video__inner
+                .video__col
+                    a.video__title(href="//alcea.com" target="_blank")
+                        +icon({iconName: 'alcea-logo', className: 'video__title-img'})
+                    button.youtube-btn.video__play-wrapper
+                        +icon({iconName: 'youtube', className: 'video__play'})
+                    .video__logo-wrapper
+                        +icon({iconName: 'logo-only', className: 'video__logo'})
+                    p.video__description Посмотрите видео и узнайте всё о Kaleydo EVO mini всего за 1 минуту

@@ -21,7 +21,7 @@ mixin header({className = false})
         .top-section
             .top-section__inner
                 a.top-section__logo-wrapper(href="/")
-                    +iconImg({iconName: 'logo',
+                    +icon({iconName: 'logo',
                             className: 'top-section__logo'})
                 .top-section__description Устройство, которое определяет цвета с любой поверхности
         .header__wrapper
@@ -32,13 +32,14 @@ mixin header({className = false})
                         p.header__subtitle который привлек ваше внимание
                     +advantages({className: 'header__advantages'})
                     .more-info.more-info_disabled(class="header__more-info")
-                        .more-info__top
-                            .more-info__icon-wrapper
-                                +icon({iconName: 'arrow-down', className: 'more-info__icon'})
-                            h4.more-info__title Больше информации
-                            .more-info__icon-wrapper
-                                +icon({iconName: 'arrow-down', className: 'more-info__icon'})
-                        .more-info__dropdown
+                        .more-info__top-wrapper
+                            .more-info__top
+                                .more-info__icon-wrapper
+                                    +icon({iconName: 'arrow-down', className: 'more-info__icon'})
+                                h4.more-info__title Больше информации
+                                .more-info__icon-wrapper
+                                    +icon({iconName: 'arrow-down', className: 'more-info__icon'})
+                        .more-info__dropdown(data-open="false")
                             a.download-link.more-info__link(href="#" download)
                                 | Скачать BROCHURE KALEYDO_EVO_ENG - 523Кб
                                 +icon({iconName: 'pdf', className: 'download-link__icon'})
@@ -61,7 +62,6 @@ mixin header({className = false})
                                         img.gallery__img(src="./img/gallery-2.png" alt="")
                                     li.gallery__img-item.gallery__img-item_2.glide__slide
                                         img.gallery__img(src="./img/gallery-3.png" alt="")
-                        .gallery__info-wrapper.glide
                             .gallery__dots(data-glide-el='controls[nav]')
                                 button.gallery__dot(data-glide-dir='=0')
                                     +icon({iconName: 'kaleydo-icon', className: 'gallery__dot-icon'})
@@ -71,6 +71,7 @@ mixin header({className = false})
                                     +icon({iconName: 'kaleydo-icon', className: 'gallery__dot-icon'})
                                     | +
                                     +icon({iconName: 'gallery-icon-2', className: 'gallery__dot-icon'})
+                        .gallery__info-wrapper.glide
                             .gallery__info-track.glide__track(data-glide-el="track")
                                 ul.gallery__info-slides.glide__slides
                                     li.gallery__info-item
@@ -80,11 +81,11 @@ mixin header({className = false})
                                             .gallery__price-wrapper
                                                 p.gallery__price
                                                     | €400.00 EUR
-                                                    +iconImg({iconName: 'coupon', className: 'gallery__price-icon'})
+                                                    +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                                 p.gallery__price-old €500.00 EUR
                                             button.gallery__button.btn Заказать
                                         p.gallery__set
-                                            +iconImg({iconName: 'check', className: 'gallery__set-icon'})
+                                            +icon({iconName: 'check', className: 'gallery__set-icon'})
                                             | В комплект входит: Kaleydo Evo mini, micro USB кабель, ремешок
                                     li.gallery__info-item
                                         .gallery__title-wrapper
@@ -93,7 +94,7 @@ mixin header({className = false})
                                             .gallery__price-wrapper
                                                 p.gallery__price
                                                     | €150.00 EUR
-                                                    +iconImg({iconName: 'coupon', className: 'gallery__price-icon'})
+                                                    +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                                 p.gallery__price-old €200.00 EUR
                                             button.gallery__button.btn Заказать
                                     li.gallery__info-item
@@ -103,10 +104,11 @@ mixin header({className = false})
                                             .gallery__price-wrapper
                                                 p.gallery__price
                                                     | €150.00 EUR
-                                                    +iconImg({iconName: 'coupon', className: 'gallery__price-icon'})
+                                                    +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                                 p.gallery__price-old €200.00 EUR
                                             button.gallery__button.btn Заказать
                                         p.gallery__set
-                                            +iconImg({iconName: 'check', className: 'gallery__set-icon'})
+                                            +icon({iconName: 'check', className: 'gallery__set-icon'})
                                             | В комплект входит: Kaleydo Evo mini, micro USB кабель, ремешок + Каталог Alcea
-            +icon({iconName: 'mouse', className: 'header__mouse'})
+            .header__mouse-wrapper(data-anchor="video")
+                +icon({iconName: 'mouse', className: 'header__mouse'})

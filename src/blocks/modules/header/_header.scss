@@ -1,5 +1,6 @@
 .header {
     position: relative;
+    min-height: 100vh;
     color: $light;
     background-color: $dark;
 
@@ -7,7 +8,7 @@
         @include container();
         padding: {
             top: 80px;
-            bottom: 80px;
+            bottom: 125px;
         }
     }
     &__inner {
@@ -36,12 +37,32 @@
         margin-bottom: 52px;
     }
     &__mouse {
+        box-sizing: content-box;
         position: absolute;
-        left: 50%;
         bottom: 60px;
-        transform: translateX(-50%);
+        left: 50%;
         max-width: 24px;
         max-height: 57px;
+        transform: translateX(-50%);
         cursor: pointer;
+        stroke: rgba($light, 0.15);
+        stroke-width: 2px;
+        fill: rgba($light, 0.15);
+        padding: {
+            right: 50px;
+            left: 50px;
+        }
+        transition: {
+            property: fill, stroke, transform;
+            duration: .5s;
+        }
+    }
+    &__mouse:hover {
+        transform: translateX(-50%) scale(1.2);
+        stroke: $red;
+        fill: $red;
+    }
+    &__mouse:active {
+        transform: translateX(-50%) translateY(1px);
     }
 }

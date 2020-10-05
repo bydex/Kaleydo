@@ -147,6 +147,7 @@ ul {
     &__logo {
         display: block;
         width: 133px;
+        height: 96px;
         user-select: none;
     }
     &__description {
@@ -225,7 +226,7 @@ ul {
 // BLOCK $more-info
 .more-info {
     &__top {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         cursor: pointer;
         user-select: none;
@@ -234,6 +235,9 @@ ul {
             duration: .3s;
             property: stroke, color;
         }
+    }
+    &__top:active {
+        transform: translateY(1px);
     }
     &__top:hover, .more-info_disabled &__top:hover {
         color: $red;
@@ -250,7 +254,7 @@ ul {
         overflow: hidden;
 
         &:after {
-            content: '................................................................................................';
+            content: '...................................................................................................................................................................................................................................................................................................................................................................................................................................................................';
             position: absolute;
             bottom: 0;
             left: 0;
@@ -263,8 +267,9 @@ ul {
     }
     &__icon {
         display: block;
-        max-width: 16px;
-        max-height: 16px;
+        max-width: 14px;
+        max-height: 14px;
+        stroke-width: 2px;
         transition: {
             duration: .3s;
             property: transform;
@@ -274,6 +279,12 @@ ul {
         padding: {
             top: 10px;
             left: 21px;
+        }
+        overflow: hidden;
+        max-height: 0;
+        transition: {
+            property: max-height;
+            duration: .3s;
         }
     }
     &__link {
@@ -290,9 +301,6 @@ ul {
     }
     .more-info__icon {
         transform: rotate(180deg);
-    }
-    .more-info__dropdown {
-        display: none;
     }
 }
 
@@ -396,7 +404,7 @@ ul {
     &__img-wrapper {
         position: relative;
         z-index: 1;
-        margin-bottom: 30px;
+        padding-bottom: 30px;
         text-align: center;
     }
     &__img-item {
@@ -424,6 +432,9 @@ ul {
     }
     &__title {
         @include h3();
+        width: 235px;
+        margin-left: auto;
+        white-space: normal;
     }
     &__info-wrapper {
         max-width: 470px;
@@ -447,9 +458,9 @@ ul {
         line-height: 120%;
     }
     &__price-icon {
-        max-width: 16px;
-        max-height: 16px;
-        margin-left: 3px;
+        max-width: 15px;
+        max-height: 15px;
+        margin-left: 10px;
     }
     &__price-old {
         text-decoration-line: line-through;
@@ -461,15 +472,22 @@ ul {
         position: relative;
         padding-left: 24px;
         font-size: 12px;
+        white-space: normal;
     }
     &__set-icon {
         position: absolute;
-        top: 0;
+        top: -1px;
         left: 0;
-        max-width: 18px;
-        max-height: 18px;
+        max-width: 16px;
+        max-height: 16px;
     }
     &__dots {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 470px;
+        width: 100%;
         display: flex;
         align-items: center;
         margin-left: -10px;

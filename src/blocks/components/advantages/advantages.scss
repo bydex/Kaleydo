@@ -1,4 +1,7 @@
 .advantages {
+    .advantages__item:last-child {
+        margin-bottom: 0;
+    }
     &__list {
         @include row-flex();
     }
@@ -8,31 +11,29 @@
         display: flex;
         margin-bottom: 30px;
     }
-    .advantages__item:last-child {
-        margin-bottom: 0;
-    }
     &__img {
         max-width: 28px;
         max-height: 28px;
     }
     &__img-wrapper {
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         min-width: 50px;
-        min-height: 50px;
         max-width: 50px;
+        min-height: 50px;
         max-height: 50px;
         margin-right: 20px;
         background-color: rgba($light, .15);
         border-radius: 50%;
         transition: {
-            property: background-color;
-            duration: .3s;
+            property: background-color, transform;
+            duration: .5s;
         };
     }
     &__item:hover {
         .advantages__img-wrapper {
+            transform: scale(1.1);
             background-color: $light;
         }
     }

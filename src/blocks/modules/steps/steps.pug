@@ -1,0 +1,67 @@
+mixin steps({className = false})
+    section.steps(class=className)
+        .steps__wrapper
+            .more-info
+                .more-info__top-wrapper
+                    .more-info__top
+                        .more-info__icon-wrapper
+                        svg.more-info__icon
+                            use(xlink:href='./img/sprites/sprite.svg#arrow-down')
+                        h4.more-info__title Как использовать Kaleydo EVO mini в 4 шага?
+                        .more-info__icon-wrapper
+                        svg.more-info__icon
+                            use(xlink:href='./img/sprites/sprite.svg#arrow-down')
+                .more-info__dropdown(data-open="false")
+                    .steps__inner.steps__middle
+                        .steps__info
+                            h1.steps__title Используйте Kaleydo EVO mini в 4 шага
+                            ul.steps__list
+                                li.steps__item.steps__item_1.steps__item_active
+                                    .steps__icon
+                                    .steps__text 1. Сканируйте
+                                li.steps__item.steps__item_2
+                                    .steps__icon
+                                    .steps__text 2. Выбирайте
+                                li.steps__item.steps__item_3
+                                    .steps__icon
+                                    .steps__text 3. Визуализируйте
+                                li.steps__item.steps__item_4
+                                    .steps__icon
+                                    .steps__text 4. Создавайте
+                            ul.steps__descriptions
+                                li.steps__description.steps__description_active
+                                    p.steps__description-inner 1. Просканируйте нужный вам цвет и просматрите его через приложение
+                                    .steps__description-images
+                                        +iconImg({iconName: 'applestore', className: 'steps__description-icon'})
+                                        +iconImg({iconName: 'googleplay', className: 'steps__description-icon'})
+                                li.steps__description
+                                    p.steps__description-inner 2. Создавайте вашу собственную палитру цветов
+                                li.steps__description
+                                    p.steps__description-inner 3. Посмотрите выбранный цвт и найдит лучший источник вдохновения припомощи различных визуализаций
+                                li.steps__description
+                                    p.steps__description-inner 4. Создайте свою собственную краску с выбранным  цветом при помощи Tntnext и Amatching от Alcea
+                        ul.steps__gallery
+                            li.steps__slide.steps__slide_active
+                                img(class="steps__slide-img" src="./img/steps-slide-1.jpg" alt="")
+                            li.steps__slide
+                                img(class="steps__slide-img" src="./img/steps-slide-2.gif" alt="")
+                            li.steps__slide
+                                img(class="steps__slide-img" src="./img/steps-slide-3.jpg" alt="")
+                            li.steps__slide
+                                img(class="steps__slide-img" src="./img/steps-slide-4.jpg" alt="")
+                    .steps__inner
+                        .steps__advantages
+                            .steps__advantage
+                                .steps__advantage-icon-wrapper
+                                    +icon({iconName: 'gallery-icon-2', className: 'steps__advantage-icon'})
+                                .steps__advantage-info
+                                    h4.steps__advantage-title Находите цвета в каталогах
+                                    p.steps__advantage-description NCS, RAL, Alcea, Chroma
+                            .steps__advantage-logo-wrapper
+                                +icon({iconName: 'kaleydo-stroke', className: 'steps__advantage-logo'})
+                            .steps__advantage
+                                .steps__advantage-icon-wrapper
+                                    +icon({iconName: 'paint', className: 'steps__advantage-icon'})
+                                .steps__advantage-info
+                                    h4.steps__advantage-title Можете подобрать любые цвета с
+                                    p.steps__advantage-description красок, принтов, текстиля, пластика, еды и прочего
