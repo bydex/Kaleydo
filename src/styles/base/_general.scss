@@ -230,11 +230,18 @@ ul {
         align-items: center;
         cursor: pointer;
         user-select: none;
-        stroke: $light;
+        stroke: currentColor;
         transition: {
-            duration: .3s;
+            duration: .5s;
             property: stroke, color;
         }
+    }
+    &__top_small .more-info__title {
+        font-size: 12px;
+    }
+    &__top_small .more-info__icon {
+        stroke-width: 1px;
+        max-width: 9px;
     }
     &__top:active {
         transform: translateY(1px);
@@ -271,7 +278,7 @@ ul {
         max-height: 14px;
         stroke-width: 2px;
         transition: {
-            duration: .3s;
+            duration: .5s;
             property: transform;
         }
     }
@@ -284,7 +291,7 @@ ul {
         max-height: 0;
         transition: {
             property: max-height;
-            duration: .3s;
+            duration: .5s;
         }
     }
     &__link {
@@ -297,7 +304,7 @@ ul {
 .more-info_disabled {
     .more-info__top {
         color: #424242;
-        stroke: #424242;
+        stroke: currentColor;
     }
     .more-info__icon {
         transform: rotate(180deg);
@@ -420,8 +427,9 @@ ul {
         opacity: .3;
         transition: {
             property: transform, top, left, opacity;
-            duration: .4s;
+            duration: .8s;
         }
+        will-change: transform, top, left, opacity;
     }
     &__img {
         max-width: 288px;

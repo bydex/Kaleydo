@@ -1,16 +1,16 @@
 mixin steps({className = false})
-    section.steps(class=className)
+    section.steps(class=className id="steps")
         .steps__wrapper
-            .more-info
-                .more-info__top-wrapper
-                    .more-info__top
+            .more-info.more-info_disabled
+                .more-info__top-wrapper.steps__top-title
+                    .more-info__top(data-anchor="steps")
                         .more-info__icon-wrapper
-                        svg.more-info__icon
-                            use(xlink:href='./img/sprites/sprite.svg#arrow-down')
+                            svg.more-info__icon
+                                use(xlink:href='./img/sprites/sprite.svg#arrow-down')
                         h4.more-info__title Как использовать Kaleydo EVO mini в 4 шага?
                         .more-info__icon-wrapper
-                        svg.more-info__icon
-                            use(xlink:href='./img/sprites/sprite.svg#arrow-down')
+                            svg.more-info__icon
+                                use(xlink:href='./img/sprites/sprite.svg#arrow-down')
                 .more-info__dropdown(data-open="false")
                     .steps__inner.steps__middle
                         .steps__info
@@ -32,8 +32,10 @@ mixin steps({className = false})
                                 li.steps__description.steps__description_active
                                     p.steps__description-inner 1. Просканируйте нужный вам цвет и просматрите его через приложение
                                     .steps__description-images
-                                        +iconImg({iconName: 'applestore', className: 'steps__description-icon'})
-                                        +iconImg({iconName: 'googleplay', className: 'steps__description-icon'})
+                                        a.steps__description-image-wrapper(href="https://" target="_blank")
+                                            +iconImg({iconName: 'applestore', className: 'steps__description-icon'})
+                                        a.steps__description-image-wrapper(href="https://" target="_blank")
+                                            +iconImg({iconName: 'googleplay', className: 'steps__description-icon'})
                                 li.steps__description
                                     p.steps__description-inner 2. Создавайте вашу собственную палитру цветов
                                 li.steps__description
@@ -65,3 +67,12 @@ mixin steps({className = false})
                                 .steps__advantage-info
                                     h4.steps__advantage-title Можете подобрать любые цвета с
                                     p.steps__advantage-description красок, принтов, текстиля, пластика, еды и прочего
+                        .more-info__top-wrapper.steps__top-title.steps__bottom-title
+                            .more-info__top.more-info__top_small
+                                .more-info__icon-wrapper
+                                    svg.more-info__icon
+                                        use(xlink:href='./img/sprites/sprite.svg#arrow-down')
+                                h4.more-info__title Спасибо, теперь понятно
+                                .more-info__icon-wrapper
+                                    svg.more-info__icon
+                                        use(xlink:href='./img/sprites/sprite.svg#arrow-down')

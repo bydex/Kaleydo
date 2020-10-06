@@ -1,0 +1,24 @@
+mixin about({className = false})
+    include ../../components/gexagon/gexagon
+
+    section.about(class=className)
+        .about__wrapper
+            .about__inner
+                .about__text-col
+                    .about__title-block
+                        h1.about__title Компания Alcea
+                        p.about__description Является первым в Италии и ныне одним ведущим производителем промышленных лакокрасочных материалов в Европе.
+                    h3.about__subtitle Alcea выбирает Kaleydo EVO mini в Италии.
+                    .about__companies
+                        .about__item
+                            +icon({iconName: 'alcea-logo', className: 'about__item-logo'})
+                            a.about__item-link(href="https//" target="_blank") www.alcea.com
+                        .about__item
+                            +icon({iconName: 'kaleydo', className: 'about__item-logo'})
+                            a.about__item-link(href="https//" target="_blank") www.kaleydo.alcea.com
+                    h3.about__subtitle А мы продаем Kaleydo по всему миру!
+                .about__gexagon-col
+                    .about__gexagon-wrapper
+                        +gexagon({className: false})
+                    p.about-description Один черный бриллиант,
+                    h3.about__subtitle бесконечное множество цветов.

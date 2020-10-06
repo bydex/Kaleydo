@@ -63,7 +63,6 @@ moreInfoToggle.forEach((el) => {
 function toggleContainer(container) {
     let isOpen = container.dataset.open;
 
-    console.log(isOpen);
 
     if (isOpen === "true") {
         container.style.maxHeight = container.scrollHeight + "px";
@@ -81,7 +80,7 @@ function toggleContainer(container) {
 
         setTimeout(function() {
             container.style.maxHeight = "none";
-        }, 300);
+        }, 500);
     }
 }
 
