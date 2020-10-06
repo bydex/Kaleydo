@@ -4,6 +4,7 @@
         bottom: 72px;
     }
     &__middle {
+        margin-top: 52px;
         margin-bottom: 72px;
     }
     &__wrapper {
@@ -83,6 +84,7 @@
     }
     &__item:hover .steps__icon {
         border-color: $dark;
+        transform: scale(1.2);
     }
     &__icon {
         display: block;
@@ -95,8 +97,8 @@
         margin-right: 20px;
         border-radius: 50%;
         transition: {
-            property: background-color, border-color, border-width;
-            duration: .5s, .5s, .3s;
+            property: background-color, border-color, border-width, transform;
+            duration: .5s, .5s, .3s, .5s;
         }
     }
     &__text {
@@ -118,18 +120,24 @@
     &__description_active {
         display: block;
     }
-    &__description-inner {
+    &__description-images {
+        margin-top: 30px;
+    }
+    &__description-image-wrapper {
+        display: inline-block;
     }
     &__description-icon {
-        display: inline-block;
-        max-height: 30px;
+        height: 30px;
+        transition: {
+            property: transform;
+            duration: .5s;
+        }
     }
-    &__description-icon:first-child {
+    &__description-icon:hover {
+        transform: scale(1.2);
+    }
+    &__description-image-wrapper:first-child {
         margin-right: 60px;
-    }
-    &__description-images {
-        display: flex;
-        margin-top: 30px;
     }
     &__gallery {
         @include col();
@@ -169,6 +177,14 @@
         margin-right: 20px;
         background-color: $dark;
         border-radius: 50%;
+        transition: {
+            property: transform, filter;
+            duration: .5s;
+        }
+    }
+    &__advantage:hover .steps__advantage-icon-wrapper {
+        transform: scale(1.2);
+        filter: invert(1);
     }
     &__advantage-icon {
         max-width: 22px;
@@ -196,5 +212,19 @@
         fill: transparent;
         stroke: $dark;
         stroke-width: 2px;
+        transition: {
+            property: transform, filter;
+            duration: .5s;
+        }
+    }
+    &__advantage-logo:hover {
+        transform: scale(1.2);
+    }
+    &__top-title {
+        width: 100%;
+        text-align: center;
+    }
+    &__bottom-title {
+        margin-top: 52px;
     }
 }

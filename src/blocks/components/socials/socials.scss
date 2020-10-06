@@ -13,9 +13,16 @@
         justify-content: center;
         width: 46px;
         height: 46px;
+        transition: {
+            property: transform;
+            duration: .5s;
+        }
     }
     &__link:active {
         transform: translateY(1px);
+    }
+    &__link:hover {
+        transform: scale(1.2);
     }
     &__img {
         display: block;

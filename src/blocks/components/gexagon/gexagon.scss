@@ -1,0 +1,106 @@
+.gexagon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gexagon {
+    position: relative;
+    min-width: 300px;
+    min-height: 300px;
+    transition: .3s;
+
+
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__line {
+        display: block;
+        position: absolute;
+        width: 41.2%;
+        height: 2px;
+        background-color: #fff;
+        transition-property: transform, box-shadow;
+        transition-duration: .3s;
+        pointer-events: none;
+    }
+    &__line_1 {
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+        box-shadow: 0 0 20px 10px rgba(255, 81, 70, 0.5);
+    }
+    &__line_2 {
+        top: 15%;
+        left: 15%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        box-shadow: 0 0 20px 10px #5a299b;
+    }
+    &__line_3 {
+        top: 50%;
+        left: 100%;
+        transform: translate(-50%, -50%) rotate(90deg);
+        box-shadow: 0 0 20px 10px #4f8fc9;
+    }
+    &__line_4 {
+        bottom: 85%;
+        left: 85%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        box-shadow: 0 0 20px 10px #449587;
+    }
+    &__line_5 {
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+        box-shadow: 0 0 20px 10px #40a456;
+    }
+    &__line_6 {
+        top: 85%;
+        left: 85%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        box-shadow: 0 0 20px 10px #b3af50;
+    }
+    &__line_7 {
+        top: 50%;
+        left: 0%;
+        transform: translate(calc(-50% + 2px), -50%) rotate(90deg);
+        box-shadow: 0 0 20px 10px #d18b45;
+    }
+    &__line_8 {
+        bottom: 15%;
+        left: 15%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        box-shadow: 0 0 20px 10px #b3af50;
+    }
+}
+
+.gexagon-wrapper:hover {
+    .gexagon__line_1 {
+        transform: translate(-50%, -50%) rotate(0) translateY(-30px);
+    }
+    .gexagon__line_2 {
+        transform: translate(-50%, -50%) rotate(-45deg) translateY(-30px);
+    }
+    .gexagon__line_3 {
+        transform: translate(-50%, -50%) rotate(90deg) translateY(-30px);
+    }
+    .gexagon__line_4 {
+        transform: translate(-50%, -50%) rotate(45deg) translateY(-30px);
+    }
+    .gexagon__line_5 {
+        transform: translate(-50%, -50%) rotate(0) translateY(30px);
+    }
+    .gexagon__line_6 {
+        transform: translate(-50%, -50%) rotate(-45deg) translateY(30px);
+    }
+    .gexagon__line_7 {
+        transform: translate(calc(-50% + 2px), -50%) rotate(90deg) translateY(30px);
+    }
+    .gexagon__line_8 {
+        transform: translate(-50%, -50%) rotate(45deg) translateY(30px);
+    }
+}
