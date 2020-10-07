@@ -67,4 +67,54 @@
         position: relative;
         margin-bottom: 48px;
     }
+    &__companies {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+    }
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        fill: #FFC500;
+        color: #FFC500;
+    }
+    &__item:last-child:after {
+        content: '+';
+        display: block;
+        position: absolute;
+        left: 0;
+        padding: 10px;
+        font-size: 24px;
+        font-weight: 700;
+    }
+    &__item:last-child {
+        margin-left: 12px;
+    }
+    &__item:hover &__item-logo {
+        transform: scale(1.2);
+    }
+    &__item-logo {
+        height: 40px;
+        margin-bottom: 12px;
+        transition: {
+            property: transform;
+            duration: .5s;
+        }
+    }
+    &__item-logo_alcea {
+    }
+    &__item-link {
+        font-size: 12px;
+        line-height: 167%;
+        text-decoration: underline;
+        transition: {
+            property: text-decoration-color;
+            duration: .5s;
+        }
+    }
+    &__item-link:hover {
+        text-decoration-color: transparent;
+    }
 }
