@@ -1,0 +1,95 @@
+.footer {
+    &__wrapper {
+        padding: {
+            top: 24px;
+            right: 30px;
+            bottom: 24px;
+            left: 30px;
+        }
+    }
+    &__inner {
+    }
+    &__top {
+        @include row-flex();
+        margin-bottom: 20px;
+    }
+    &__logo {
+        @include col();
+    }
+    &__logo-inner {
+        width: 133px;
+        color: $dark;
+        transition: {
+            property: color;
+            duration: .5s;
+        }
+    }
+    &__logo-inner:hover {
+        color: $yellow;
+    }
+    &__description {
+        @include col();
+        @include size(2);
+        margin-left: 64px;
+    }
+    &__contacts {
+        @include col();
+        margin-left: 96px;
+    }
+    &__phone {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 18px;
+        font-weight: 500;
+        transition: {
+            property: color;
+            duration: .5s;
+        }
+    }
+    &__phone:hover {
+        color: $red;
+        text-decoration-color: transparent;
+    }
+    &__email {
+        display: block;
+        font-size: 12px;
+        line-height: 100%;
+        text-decoration-line: underline;
+        transition: {
+            property: color, text-decoration-color;
+            duration: .5s;
+        }
+    }
+    &__email:hover {
+        color: $red;
+        text-decoration-color: transparent;
+    }
+    &__socials {
+        margin-left: 50px;
+    }
+    &__copyright {
+        @include col();
+        margin-left: auto;
+    }
+    &__links {
+        display: flex;
+    }
+    &__links-item {
+        margin-right: 80px;
+    }
+    &__links-item:last-child {
+        margin-right: 0;
+    }
+    &__links-link {
+        font-size: 12px;
+        text-decoration-line: underline;
+        transition: {
+            property: color, text-decoration-color;
+            duration: .5s;
+        }
+    }
+    &__links-link:hover {
+        color: $red;
+        text-decoration-color: transparent;
+    }
+}

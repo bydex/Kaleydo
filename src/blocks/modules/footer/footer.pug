@@ -5,19 +5,20 @@ mixin footer({className = false})
             .footer__inner
                 .footer__top
                     .footer__logo
-                        +icon({iconName: 'logo-only'})
+                        +icon({iconName: 'logo-only', className: 'footer__logo-inner', viewBoxName: '0 0 202 84'})
                     p.footer__description Устройство, которое определяет цвета с любой поверхности
                     .footer__contacts
                         a.footer__phone(href="tel:+77026631887") +7 702 663 18 87
                         a.footer__email(href="mailto:info@kaleydoevo.com") info@kaleydoevo.com
-                    +socials({className: 'footer__socials socials_small'})
-                    .copyright
-                        p.copyright__text Разрабтака сайта
+                    .footer__socials
+                        +socials({className: 'socials_small'})
+                    .copyright.footer__copyright
+                        p.copyright__text Разработка сайта
                         a.copyright__link(href="https://webpeppers.kz/" target="_blank").copyright__link webpeppers.kz
                 ul.footer__links
                     li.footer__links-item
-                        a.footer__links-link Политика конфиденциальности
+                        a(href="").footer__links-link Политика конфиденциальности
                     li.footer__links-item
-                        a.footer__links-link Партнерам
+                        a(href="").footer__links-link Партнерам
                     li.footer__links-item
-                        a.footer__links-link Доставка
+                        a(href="").footer__links-link Доставка

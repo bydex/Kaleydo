@@ -620,3 +620,26 @@ ul {
     border-radius: 50%;
     border: 1px solid $light;
 }
+
+
+
+// BLOCK $copyright
+.copyright {
+    line-height:125%;
+    color: currentColor;
+
+    &__text {
+
+    }
+    &__link {
+        text-decoration-line: underline;
+        transition: {
+            property: color, text-decoration-color;
+            duration: .5s;
+        }
+    }
+    &__link:hover {
+        text-decoration-color: transparent;
+        color: $red;
+    }
+}

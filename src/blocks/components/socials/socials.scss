@@ -28,10 +28,10 @@
         display: block;
         max-width: 46px;
         max-height: 46px;
-        fill: $light;
+        fill: currentColor;
         transition: {
             property: fill;
-            duration: .3s;
+            duration: .5s;
         };
     }
     &__link:hover .socials__img {
