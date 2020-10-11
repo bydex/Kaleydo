@@ -5,6 +5,19 @@
         text-align: center;
     }
     &__link {
+        @media (max-width: $break_md) {
+            font-size: 24px;
+        }
+        @media (max-width: $break_lg) {
+            padding: {
+                top: 8px;
+                bottom: 8px;
+            }
+            font-size: 28px;
+        }
+        @media (max-width: $break_xl) {
+            font-size: 32px;
+        }
         display: block;
         position: relative;
         overflow: hidden;

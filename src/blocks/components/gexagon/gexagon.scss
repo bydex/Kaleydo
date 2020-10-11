@@ -6,17 +6,34 @@
 }
 
 .gexagon {
+    @media (max-width: $break_xss) {
+        min-width: 152px;
+        min-height: 152px;
+    }
+    @media (max-width: $break_md) {
+        min-width: 250px;
+        min-height: 250px;
+        transition: {
+            property: transform !important;
+            duration: .7s !important;
+        }
+    }
     position: relative;
     min-width: 300px;
     min-height: 300px;
-    transition: .3s;
 
-
-    svg {
+    &__icon {
+        @media (max-width: $break_xss) {
+            max-width: 58px;
+        }
+        @media (max-width: $break_md) {
+            max-width: 72px;
+        }
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        max-width: 84px;
     }
     &__line {
         display: block;

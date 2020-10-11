@@ -1,26 +1,30 @@
 mixin about({className = false})
     include ../../components/gexagon/gexagon
+    include ../../components/parallax-stripes/parallax-stripes
 
-    section.about(class=className)
-        video.about__video(autoplay loop muted)
-            source(src="./img/about.mp4" type="video/mp4")
-        .about__wrapper
-            .about__inner
-                .about__text-col
-                    .about__title-block
-                        h1.about__title Компания Alcea
-                        p.about__description Является первым в Италии и ныне одним ведущим производителем промышленных лакокрасочных материалов в Европе.
-                    h3.about__subtitle Alcea выбирает Kaleydo EVO mini в Италии.
-                    .about__companies
-                        .about__item
-                            +icon({iconName: 'alcea-with-logo', viewBoxName: '0 0 169 40', className: 'about__item-logo about__item-logo_alcea'})
-                            a.about__item-link(href="https://www.alcea.com" target="_blank") www.alcea.com
-                        .about__item
-                            +icon({iconName: 'kaleydo-icon', viewBoxName: '0 0 39 30', className: 'about__item-logo'})
-                            a.about__item-link(href="https://www.kaleydo.alcea.com" target="_blank") www.kaleydo.alcea.com
-                    h3.about__subtitle А мы продаем Kaleydo по всему миру!
-                .about__gexagon-col
-                    .about__gexagon-wrapper
-                        +gexagon({className: false})
-                    p.about-description Один черный бриллиант,
-                    h3.about__subtitle бесконечное множество цветов.
+    section.about(class=className id='about')
+        +parallax-stripes({className: 'about__parallax'})
+        .about__inner-wrapper
+            .about__wrapper
+                .about__inner
+                    .about__text-col
+                        video.about__video.lazy(autoplay loop muted)
+                            source(data-src="./img/about.mp4" type="video/mp4")
+                        .about__text-inner
+                            .about__title-block
+                                h1.about__title(class="wow animate__fadeInUp" data-wow-duration=".5s") Компания Alcea
+                                p.about__description(class="wow animate__fadeInUp" data-wow-duration="1s") Является первым в Италии и ныне одним ведущим производителем промышленных лакокрасочных материалов в Европе.
+                            h3.about__subtitle(class="wow animate__fadeInUp" data-wow-duration="1s") Alcea выбирает Kaleydo EVO mini в Италии.
+                            .about__companies
+                                .about__item(class="wow animate__fadeInUp" data-wow-duration="1s")
+                                    +icon({iconName: 'alcea-with-logo', viewBoxName: '0 0 169 40', className: 'about__item-logo about__item-logo_alcea', viewBoxName: '0 0 169 40'})
+                                    a.about__item-link(href="https://www.alcea.com" target="_blank") www.alcea.com
+                                .about__item(class="wow animate__fadeInUp" data-wow-duration="1.5s")
+                                    +icon({iconName: 'kaleydo-icon', viewBoxName: '0 0 39 30', className: 'about__item-logo about__item-logo_kaleydo', viewBoxName: '0 0 39 30'})
+                                    a.about__item-link(href="https://www.kaleydo.alcea.com" target="_blank") www.kaleydo.alcea.com
+                            h3.about__subtitle(class="wow animate__fadeInUp" data-wow-duration="1.5s") А мы продаем Kaleydo по всему миру!
+                    .about__gexagon-col
+                        .about__gexagon-wrapper
+                            +gexagon({className: false})
+                        p.about__description(class="wow animate__fadeInUp" data-wow-duration="1s") Один черный бриллиант,
+                        h3.about__subtitle(class="wow animate__fadeInUp" data-wow-duration="1.5s") бесконечное множество цветов.

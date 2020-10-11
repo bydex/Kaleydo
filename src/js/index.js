@@ -5,13 +5,52 @@ import "./import/components";
 // import "nodelist-foreach-polyfill";
 // import "svgxuse";
 import Glide from "@glidejs/glide";
+import Rellax from 'rellax/rellax';
+import maskInput from 'vanilla-text-mask';
+import WOW from 'wow.js';
 
 
-const imgSlider = new Glide(".gallery__img-wrapper", {
+new WOW().init();
+
+const inputTel = document.querySelectorAll("input[type='tel']"),
+    phoneMask = ['+', '7', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
+
+if (inputTel !== undefined) {
+    inputTel.forEach((el) => {
+        maskInput({
+            inputElement: el,
+            mask: phoneMask
+        });
+    })
+}
+
+
+const rellax = new Rellax('.rellax', {
+    speed: -2,
+    center: true,
+    wrapper: null,
+    round: true,
+    vertical: true,
+    horizontal: false
+  });
+
+
+const navHeight = 60;
+
+
+
+const imgSlider = new Glide(".header__gallery-wrapper .gallery__img-wrapper", {
     animationDuration: 0,
     rewindDuration: 0,
 });
-const infoSlider = new Glide(".gallery__info-wrapper", {
+const infoSlider = new Glide(".header__gallery-wrapper .gallery__info-wrapper", {
+    animationDuration: 0,
+    rewindDuration: 0,
+    touchAngle: 0
+});
+
+const infoModalSlider = new Glide("#form .gallery__info-wrapper", {
     animationDuration: 0,
     rewindDuration: 0,
     touchAngle: 0
@@ -28,6 +67,7 @@ imgSlider.on(["run.after", "mount.before"], function () {
 
 infoSlider.mount();
 imgSlider.mount();
+infoModalSlider.mount();
 
 
 function getIndex(slider) {
@@ -99,7 +139,7 @@ buttons.forEach((el) => {
 
         if (anchorSlide === false) location.href = `/#${slideId}`;
 
-        const slideOffset = anchorSlide.getBoundingClientRect().top + window.scrollY;
+        const slideOffset = anchorSlide.getBoundingClientRect().top + window.scrollY - navHeight;
 
         setTimeout(() => {
             window.scroll({
@@ -117,6 +157,7 @@ buttons.forEach((el) => {
 const videoWrapper = document.querySelector(".video");
 const videoPlay = videoWrapper.querySelector(".video__play");
 const video = videoWrapper.querySelector('.video__video');
+const sources = video.querySelectorAll('source');
 
 videoPlay.addEventListener("mouseenter", () => {
     videoWrapper.classList.add("video_hover");
@@ -126,6 +167,7 @@ videoPlay.addEventListener("mouseleave", () => {
 });
 
 videoPlay.addEventListener("click", function() {
+    document.body.classList.toggle('video_active');
     videoWrapper.classList.toggle('video_active');
 
     if (videoWrapper.classList.contains('video_active')) {
@@ -136,11 +178,37 @@ videoPlay.addEventListener("click", function() {
 })
 
 video.addEventListener('ended', function() {
+    document.body.classList.toggle('video_active');
     videoWrapper.classList.toggle('video_active');
 })
 
 
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
 
+  if ("IntersectionObserver" in window) {
+    var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(video) {
+        if (video.isIntersecting) {
+          for (var source in video.target.children) {
+            var videoSource = video.target.children[source];
+            if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+              videoSource.src = videoSource.dataset.src;
+            }
+          }
+
+          video.target.load();
+          video.target.classList.remove("lazy");
+          lazyVideoObserver.unobserve(video.target);
+        }
+      });
+    });
+
+    lazyVideos.forEach(function(lazyVideo) {
+      lazyVideoObserver.observe(lazyVideo);
+    });
+  }
+});
 
 const steps = document.querySelectorAll(".steps__item");
 const texts = document.querySelectorAll(".steps__description");
@@ -171,35 +239,127 @@ steps.forEach((el) => {
 
 
 
-// (() => {
-//     const cursor = document.querySelector(".cursor");
-//     const cursorInner = document.querySelector(".cursor-inner");
-//     const width = cursor.getBoundingClientRect().width;
-//     const height = cursor.getBoundingClientRect().height;
+(() => {
+    const cursor = document.querySelector(".cursor");
+    const cursorInner = document.querySelector(".cursor-inner");
+    const widthCursor = cursor.getBoundingClientRect().width;
+    const heightCursor = cursor.getBoundingClientRect().height;
+    const widthCursorInner = cursorInner.getBoundingClientRect().width;
+    const heightCursorInner = cursorInner.getBoundingClientRect().height;
 
-//     document.body.addEventListener("mousemove", function (event) {
-//         const x = event.x;
-//         const y = event.y;
+    document.body.addEventListener("mousemove", function (event) {
+        const x = event.x;
+        const y = event.y;
 
-//         setTimeout(() => {
-//             setCursorPosition(x, y);
-//         }, 100);
-//     });
-//     document.addEventListener("mouseenter", function (event) {
-//         cursor.style.opacity = 1;
-//         cursorInner.style.opacity = 1;
-//     });
-//     document.addEventListener("mouseleave", function (event) {
-//         cursorInner.style.opacity = 0;
-//     });
+        setTimeout(() => {
+            setCursorPosition(x, y);
+        }, 100);
+    });
+    document.addEventListener("mouseenter", function (event) {
+        cursor.style.opacity = 1;
+        cursorInner.style.opacity = 1;
+    });
+    document.addEventListener("mouseleave", function (event) {
+        cursorInner.style.opacity = 0;
+    });
 
-//     function setCursorPosition(x, y) {
-//         x -= width / 2;
-//         y -= height / 2;
+    function setCursorPosition(x, y) {
+        let xDot = x - widthCursorInner / 2;
+        let yDot = y - heightCursorInner / 2;
 
-//         setTimeout(() => {
-//             cursor.style.transform = `translate(${x}px, ${y}px)`;
-//         }, 100);
-//         cursorInner.style.transform = `translate(${x}px, ${y}px)`;
-//     }
-// })();
+
+        x -= widthCursor / 2;
+        y -= heightCursor / 2;
+
+
+        setTimeout(() => {
+            cursor.style.transform = `translate(${x}px, ${y}px)`;
+        }, 100);
+        cursorInner.style.transform = `translate(${xDot}px, ${yDot}px)`;
+    }
+})();
+
+
+
+
+
+const navRow = document.querySelector('.nav-row');
+
+window.addEventListener("scroll", setNavRowStatus);
+setNavRowStatus();
+
+function setNavRowStatus() {
+    const offsetTop = window.pageYOffset;
+    const hasClass = navRow.classList.contains('nav-row_active');
+
+    if (offsetTop > 0 && !hasClass) {
+        navRow.classList.add('nav-row_active');
+        document.body.classList.add('body-nav_active');
+    } else if (offsetTop === 0 && hasClass) {
+        navRow.classList.remove('nav-row_active');
+        document.body.classList.remove('body-nav_active');
+    }
+}
+
+
+
+const hamburger = document.querySelector('.hamburger');
+const callForm = document.querySelector('[data-call-form]');
+const menu = document.querySelector('#menu');
+const offer = document.querySelector('#form');
+
+hamburger.addEventListener('click', function() {
+
+    if (!isActive()) {
+        openModal(menu);
+    } else {
+        closeModal();
+    }
+})
+
+callForm.addEventListener('click', function() {
+    if (menu.classList.contains('modal-b_active')) closeModal();
+
+    openModal(offer);
+})
+
+
+const closeModalButtons = document.querySelectorAll('[data-close-modal]');
+
+closeModalButtons.forEach((el) => {
+    el.addEventListener('click', function() {
+        closeModal();
+    })
+})
+
+document.addEventListener('keydown', (event) => {
+    if (event.keyCode === 27) {
+        closeModal();
+    }
+})
+
+const btnOffer = document.querySelectorAll('[data-offer-call]');
+
+
+btnOffer.forEach((el) => {
+    el.addEventListener('click', function() {
+        openModal(offer);
+    })
+})
+
+
+function isActive() {
+    return !!document.querySelector('.modal-b_active');
+}
+function openModal(modal) {
+    hamburger.classList.add('hamburger_active');
+    modal.classList.add('modal-b_active');
+    document.querySelector('html').classList.add('modal-active');
+}
+function closeModal() {
+    hamburger.classList.remove('hamburger_active');
+    document.querySelectorAll('.modal-b_active').forEach((el) => {
+        el.classList.remove('modal-b_active');
+    })
+    document.querySelector('html').classList.remove('modal-active');
+}

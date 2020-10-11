@@ -3,21 +3,24 @@ mixin header({className = false})
     include ../../components/nav/nav
     include ../../components/socials/socials
     include ../../components/advantages/advantages
-    header.header(class=className)
+    include ../../components/gallery/gallery
+    include ../../components/parallax-stripes/parallax-stripes
+
+    header.header(class=className id="header")
+        +parallax-stripes({className: 'header__parallax'})
         .nav-row
-            .nav-row__hamburger
+            .nav-row__hamburger(data-modal-id="menu")
                 +hamburger({className: 'nav-row__hamburger'})
+            .nav-row__wrapper
+                .nav-row__logo
+                    +icon({iconName: 'kaleydo-icon', className: 'nav-row__logo-inner', viewBoxName: '0 0 39 30'})
+                    +icon({iconName: 'kaleydo-text', className: 'nav-row__logo-text', viewBoxName: '0 0 174 15'})
             .nav-row__info
+                .languages.nav-row__languages
+                    a(class="languages__item languages__item_active" href="./") рус
+                    a(class="languages__item" href="./") eng
                 +socials({className: 'socials_small nav-row__socials'})
-                button.btn.btn_small.nav-row__button Заказать
-        .modal-b
-            .modal-b__wrapper
-                .modal-b__inner
-                    .modal-b__nav-wrapper.nav-wrapper
-                        +nav({className: 'nav-wrapper__nav'})
-                        +socials({className: 'nav-wrapper__socials'})
-                        .modal-b__button-wrapper
-                            button.btn.nav-wrapper__button Заказать
+                button.btn.btn_small.nav-row__button(data-offer-call) Заказать
         .top-section
             .top-section__inner
                 a.top-section__logo-wrapper(href="/")
@@ -28,87 +31,26 @@ mixin header({className = false})
             .header__inner
                 .header__text
                     .header__title-block
-                        h1.header__title Просканируй при помощи <mark class="mark">Kaleydo EVO mini</mark> любой цвет
-                        p.header__subtitle который привлек ваше внимание
+                        h1.header__title(class="wow animate__fadeInUp" data-wow-duration="1s") Просканируй при помощи <mark class="mark">Kaleydo EVO mini</mark> любой цвет
+                        p.header__subtitle(class="wow animate__fadeInUp" data-wow-duration="2s") который привлек ваше внимание
                     +advantages({className: 'header__advantages'})
-                    .more-info.more-info_disabled(class="header__more-info")
+                    .more-info.more-info_disabled(class="header__more-info wow animate__fadeInUp" data-wow-duration="1.5s")
                         .more-info__top-wrapper
                             .more-info__top
                                 .more-info__icon-wrapper
                                     +icon({iconName: 'arrow-down', className: 'more-info__icon'})
-                                h4.more-info__title Больше информации
+                                h4.more-info__title
+                                    span.more-info__dotted Больше информации
                                 .more-info__icon-wrapper
                                     +icon({iconName: 'arrow-down', className: 'more-info__icon'})
                         .more-info__dropdown(data-open="false")
-                            a.download-link.more-info__link(href="#" download)
+                            a.download-link.more-info__link(href="./pdf-small.pdf" download)
                                 | Скачать BROCHURE KALEYDO_EVO_ENG - 523Кб
                                 +icon({iconName: 'pdf', className: 'download-link__icon'})
-                            a.download-link.more-info__link(href="#" download)
+                            a.download-link.more-info__link(href="./pdf-big.pdf" download)
                                 | Скачать KALEYDO_Evo_eng - 2,61 Мб
                                 +icon({iconName: 'pdf', className: 'download-link__icon'})
                 .header__gallery
-                    .gallery
-                        .gallery__img-wrapper.glide
-                            .gallery__arrows(data-glide-el='controls')
-                                button.gallery__arrow.gallery__arrow_left(data-glide-dir='<')
-                                    +icon({iconName: 'arrow-left', className: 'gallery__arrow-inner'})
-                                button.gallery__arrow.gallery__arrow_right(data-glide-dir='>')
-                                    +icon({iconName: 'arrow-right', className: 'gallery__arrow-inner'})
-                            .gallery__img-track.glide__track(data-glide-el="track")
-                                ul.gallery__img-slides.glide__slides
-                                    li.gallery__img-item.gallery__img-item_0.glide__slide
-                                        img.gallery__img(src="./img/gallery-1.png" alt="")
-                                    li.gallery__img-item.gallery__img-item_1.glide__slide
-                                        img.gallery__img(src="./img/gallery-2.png" alt="")
-                                    li.gallery__img-item.gallery__img-item_2.glide__slide
-                                        img.gallery__img(src="./img/gallery-3.png" alt="")
-                            .gallery__dots(data-glide-el='controls[nav]')
-                                button.gallery__dot(data-glide-dir='=0')
-                                    +icon({iconName: 'kaleydo-icon', className: 'gallery__dot-icon'})
-                                button.gallery__dot(data-glide-dir='=1')
-                                    +icon({iconName: 'gallery-icon-2', className: 'gallery__dot-icon'})
-                                button.gallery__dot(data-glide-dir='=2')
-                                    +icon({iconName: 'kaleydo-icon', className: 'gallery__dot-icon'})
-                                    | +
-                                    +icon({iconName: 'gallery-icon-2', className: 'gallery__dot-icon'})
-                        .gallery__info-wrapper.glide
-                            .gallery__info-track.glide__track(data-glide-el="track")
-                                ul.gallery__info-slides.glide__slides
-                                    li.gallery__info-item
-                                        .gallery__title-wrapper
-                                            h3.gallery__title Kaleydo Evo mini
-                                        .gallery__info
-                                            .gallery__price-wrapper
-                                                p.gallery__price
-                                                    | €400.00 EUR
-                                                    +icon({iconName: 'coupon', className: 'gallery__price-icon'})
-                                                p.gallery__price-old €500.00 EUR
-                                            button.gallery__button.btn Заказать
-                                        p.gallery__set
-                                            +icon({iconName: 'check', className: 'gallery__set-icon'})
-                                            | В комплект входит: Kaleydo Evo mini, micro USB кабель, ремешок
-                                    li.gallery__info-item
-                                        .gallery__title-wrapper
-                                            h3.gallery__title Каталог Alcea
-                                        .gallery__info
-                                            .gallery__price-wrapper
-                                                p.gallery__price
-                                                    | €150.00 EUR
-                                                    +icon({iconName: 'coupon', className: 'gallery__price-icon'})
-                                                p.gallery__price-old €200.00 EUR
-                                            button.gallery__button.btn Заказать
-                                    li.gallery__info-item
-                                        .gallery__title-wrapper
-                                            h3.gallery__title Kaleydo Evo mini + КаталогAlcea
-                                        .gallery__info
-                                            .gallery__price-wrapper
-                                                p.gallery__price
-                                                    | €150.00 EUR
-                                                    +icon({iconName: 'coupon', className: 'gallery__price-icon'})
-                                                p.gallery__price-old €200.00 EUR
-                                            button.gallery__button.btn Заказать
-                                        p.gallery__set
-                                            +icon({iconName: 'check', className: 'gallery__set-icon'})
-                                            | В комплект входит: Kaleydo Evo mini, micro USB кабель, ремешок + Каталог Alcea
+                    +gallery({className: 'header__gallery-wrapper'})
             .header__mouse-wrapper(data-anchor="video")
                 +icon({iconName: 'mouse', className: 'header__mouse'})

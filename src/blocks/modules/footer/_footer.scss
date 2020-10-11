@@ -1,5 +1,13 @@
 .footer {
+    background-color: $light;
+
     &__wrapper {
+        @media (max-width: $break_xs) {
+            padding: {
+                left: 16px;
+                right: 16px;
+            }
+        }
         padding: {
             top: 24px;
             right: 30px;
@@ -11,12 +19,26 @@
     }
     &__top {
         @include row-flex();
-        margin-bottom: 20px;
+    }
+    &__top:after {
+        @media (max-width: $break_md) {
+            content: '';
+            width: 100%;
+            order: -1;
+            margin-bottom: 16px;
+        }
     }
     &__logo {
+        @media (max-width: $break_xs) {
+            margin-right: 0;
+        }
         @include col();
+        order: -3;
     }
     &__logo-inner {
+        @media (max-width: $break_xs) {
+            width: 49px;
+        }
         width: 133px;
         color: $dark;
         transition: {
@@ -28,15 +50,29 @@
         color: $yellow;
     }
     &__description {
+        @media (max-width: $break_xs) {
+            max-width: 210px;
+            font-size: 10px;
+        }
+        @media (max-width: $break_xl) {
+            margin-left: 16px;
+        }
         @include col();
-        @include size(2);
+        max-width: 277px;
         margin-left: 64px;
+        order: -2;
     }
     &__contacts {
+        @media (max-width: $break_xl) {
+            margin-left: 16px;
+        }
         @include col();
         margin-left: 96px;
     }
     &__phone {
+        @media (max-width: $break_xs) {
+            font-size: 16px;
+        }
         display: block;
         margin-bottom: 6px;
         font-size: 18px;
@@ -51,6 +87,9 @@
         text-decoration-color: transparent;
     }
     &__email {
+        @media (max-width: $break_xs) {
+            font-size: 10px;
+        }
         display: block;
         font-size: 12px;
         line-height: 100%;
@@ -65,19 +104,48 @@
         text-decoration-color: transparent;
     }
     &__socials {
+        @media (max-width: $break_xs) {
+            margin-left: auto;
+            margin-right: 16px;
+        }
+        @media (max-width: $break_xl) {
+            margin-left: 16px;
+        }
         margin-left: 50px;
     }
     &__copyright {
+        @media (max-width: $break_xs) {
+            display: flex;
+            width: 100%;
+            order: 3;
+            margin-left: 16px;
+        }
         @include col();
         margin-left: auto;
     }
     &__links {
+        @media (max-width: $break_xs) {
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        @include col();
+        @include size(12);
         display: flex;
+        margin-top: 20px;
     }
     &__links-item {
+        @media (max-width: $break_xs) {
+            margin-right: 0;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 10px;
+        }
         margin-right: 80px;
     }
     &__links-item:last-child {
+        @media (max-width: $break_xs) {
+            margin-bottom: 0;
+        }
         margin-right: 0;
     }
     &__links-link {

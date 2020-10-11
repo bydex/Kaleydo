@@ -1,10 +1,25 @@
 .header {
+    @media (max-width: $break_lg) {
+        padding-top: 42px;
+    }
     position: relative;
     min-height: 100vh;
     color: $light;
     background-color: $dark;
 
+    &__parallax {
+        position: absolute;
+        bottom: 15%;
+        left: 50px;
+    }
     &__wrapper {
+        @media (max-width: $break_xss) {
+            padding-bottom: 32px;
+            padding-top: 24px;
+        }
+        @media (max-width: $break_md) {
+            padding-top: 40px;
+        }
         @include container();
         padding: {
             top: 80px;
@@ -17,26 +32,47 @@
     &__text {
         @include col();
         @include size(6);
+        @include size-sm(12);
     }
     &__gallery {
         @include col();
         @include size(6);
+        @include size-sm(12);
     }
     &__title {
+        @media (max-width: $break_md) {
+            max-width: 550px;
+        }
         @include h1();
         margin-bottom: 16px;
         line-height: 124%;
     }
     &__subtitle {
+        @include xss(font-size, 16px);
         @include h3();
     }
     &__title-block {
+         @media (max-width: $break_xss) {
+            margin-bottom: 24px;
+        }
+        @media (max-width: $break_md) {
+            margin-bottom: 40px;
+        }
         margin-bottom: 72px;
     }
     &__advantages {
+        @media (max-width: $break_sm) {
+            margin-bottom: 32px;
+        }
         margin-bottom: 52px;
     }
     &__mouse {
+        @media (max-width: $break_xss) {
+            display: none;
+        }
+        @media (max-width: $break_sm) {
+            bottom: 35px;
+        }
         box-sizing: content-box;
         position: absolute;
         bottom: 60px;
@@ -55,6 +91,11 @@
         transition: {
             property: fill, stroke, transform;
             duration: .5s;
+        }
+    }
+    &__more-info {
+        @media (max-width: $break_sm) {
+            margin-bottom: 40px;
         }
     }
     &__mouse:hover {

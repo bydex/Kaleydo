@@ -19,10 +19,12 @@ mixin advantages({className = false})
                 },
             ];
         ul.advantages__list
+            - let i = 0;
             each val, index in advantages
-                li.advantages__item
+                li.advantages__item(class="wow animate__fadeInUp" data-wow-duration=`${1.5 + i}s`)
                     .advantages__img-wrapper
                         +icon({iconName: `advantage-${val.icon}`, className: 'advantages__img'})
                     .advantages__text
                         h4.advantages__title= val.title
                         p.advantages__description= val.description
+                - i += .5;

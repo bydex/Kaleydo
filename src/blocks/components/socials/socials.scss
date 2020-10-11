@@ -8,6 +8,18 @@
         border-radius: 50%;
     }
     &__link {
+        @media (max-width: $break_md) {
+            width: 32px;
+            height: 32px;
+        }
+        @media (max-width: $break_lg) {
+            width: 36px;
+            height: 36px;
+        }
+        @media (max-width: $break_xl) {
+            width: 40px;
+            height: 40px;
+        }
         display: flex;
         align-items: center;
         justify-content: center;
@@ -39,11 +51,23 @@
     }
 }
 .socials_small {
+    @media (max-width: $break_xss) {
+        margin: {
+            right: -5px;
+            left: -5px;
+        }
+    }
     margin: {
         right: -10px;
         left: -10px;
     }
     .socials__item {
+        @media (max-width: $break_xss) {
+            margin: {
+                right: 5px;
+                left: 5px;
+            }
+        }
         margin: {
             right: 10px;
             left: 10px;

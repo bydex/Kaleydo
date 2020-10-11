@@ -1,12 +1,68 @@
 .about {
     position: relative;
-    padding: {
-        top: 100px;
-        bottom: 100px;
+    &__inner-wrapper {
+        @media (max-width: $break_md) {
+            padding-top: 0;
+            padding-bottom: 80px;
+        }
+        position: relative;
+        padding: {
+            top: 100px;
+            bottom: 100px;
+        }
+        position: relative;
+        overflow: hidden;
+        color: $light;
+        background-color: $dark;
     }
-    color: $light;
-    background-color: $dark;
-    &:after {
+    &__parallax {
+        position: absolute;
+        right: 50px;
+        bottom: 20%;
+    }
+    &__video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 1;
+        min-width: 100%;
+        min-height: 120%;
+        object-fit: cover;
+        object-position: center;
+        pointer-events: none;
+    }
+    &__wrapper {
+        @include container();
+    }
+    &__inner {
+        @include row-flex();
+    }
+    &__text-col {
+        @media (max-width: $break_md) {
+            position: relative;
+            width: 100%;
+            padding-top: 80px;
+            padding-bottom: 80px;
+            padding: {
+                right: 16px;
+                left: 16px;
+            }
+            margin: {
+                left: 0;
+                right: 0;
+                bottom: 80px;
+            }
+            overflow: hidden;
+        }
+        @media (max-width: $break_sm) {
+            width: 100%;
+        }
+        @include col();
+        @include size(6);
+        @include size-sm(12);
+    }
+    &__text-col:after {
         content: '';
         position: absolute;
         top: 0;
@@ -17,32 +73,16 @@
         background-color: rgba($dark, .89);
         pointer-events: none;
     }
-    &__video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        pointer-events: none;
-    }
-    &__wrapper {
+    &__text-inner {
         position: relative;
-        z-index: 3;
-        @include container();
-    }
-    &__inner {
-        @include row-flex();
-    }
-    &__text-col {
-        @include col();
-        @include size(6);
+        z-index: 5;
     }
     &__gexagon-col {
         @include col();
         @include size(6);
+        @include size-md(12);
+        position: relative;
+        z-index: 5;
         text-align: center;
     }
     &__title {
@@ -50,13 +90,27 @@
         margin-bottom: 10px;
     }
     &__description {
+        @media (max-width: $break_xss) {
+            font-size: 12px;
+        }
+        @media (max-width: $break_md) {
+            font-size: 14px;
+        }
         font-size: 16px;
         line-height: 150%;
     }
     &__title-block {
+        @media (max-width: $break_md) {
+            margin-bottom: 24px;
+        }
         margin-bottom: 46px;
     }
     &__subtitle {
+        @media (max-width: $break_xss) {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 14px;
+        }
         @include h3();
         margin-bottom: 24px;
     }
@@ -64,6 +118,12 @@
         margin-bottom: 0;
     }
     &__gexagon-wrapper {
+        @media (max-width: $break_xss) {
+            margin-bottom: 40px;
+        }
+        @media (max-width: $break_md) {
+            margin-bottom: 32px;
+        }
         position: relative;
         margin-bottom: 48px;
     }
@@ -73,6 +133,10 @@
         margin-bottom: 18px;
     }
     &__item {
+        @media (max-width: $break_xss) {
+            max-width: 50%;
+            flex-grow: 1;
+        }
         position: relative;
         display: flex;
         align-items: center;
@@ -81,6 +145,10 @@
         color: #FFC500;
     }
     &__item:last-child:after {
+        @media (max-width: $break_xss) {
+            font-size: 16px;
+            padding-left: 0;
+        }
         content: '+';
         display: block;
         position: absolute;
@@ -96,6 +164,9 @@
         transform: scale(1.2);
     }
     &__item-logo {
+        @media (max-width: $break_xss) {
+            margin-bottom: 0;
+        }
         height: 40px;
         margin-bottom: 12px;
         transition: {
@@ -104,8 +175,19 @@
         }
     }
     &__item-logo_alcea {
+        @media (max-width: $break_xss) {
+            max-width: 120px;
+        }
+    }
+    &__item-logo_kaleydo {
+        @media (max-width: $break_xss) {
+            max-width: 31px;
+        }
     }
     &__item-link {
+        @media (max-width: $break_xss) {
+            font-size: 10px;
+        }
         font-size: 12px;
         line-height: 167%;
         text-decoration: underline;

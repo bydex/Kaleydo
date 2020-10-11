@@ -1,15 +1,15 @@
 mixin nav({className = false, activeLink = '/'})
     -
-        const pageNames = [{title: 'Kaleydo EVO min', link: '#header'},
-                          {title: 'Видео', link: '#video'},
-                          {title: 'Как использовать', link: '#usage'},
-                          {title: 'Компания Alcea', link: '#alcea'} ];
+        const pageNames = [{title: 'Kaleydo EVO mini', link: 'header'},
+                          {title: 'Видео', link: 'video'},
+                          {title: 'Как использовать', link: 'steps'},
+                          {title: 'Компания Alcea', link: 'about'} ];
     nav.nav(class=className)
         ul.nav__links
             each val, index in pageNames
                 if (val.link !== activeLink)
                     li.nav__item
-                        a.nav__link(href=val.link)= val.title
+                        a.nav__link(href='javascript:;' data-close-modal data-anchor-timeout="1000" data-anchor=val.link)= val.title
                 else
                     li.nav__item
-                        a.nav__link.nav__link_active(href=val.link)= val.title
+                        a.nav__link.nav__link_active(href='javascript:;' data-close-modal data-anchor-timeout="1000" data-anchor=val.link)= val.title

@@ -1,13 +1,17 @@
 mixin steps({className = false})
+    include ../../components/parallax-stripes/parallax-stripes
+
     section.steps(class=className id="steps")
+        +parallax-stripes({className: 'steps__parallax'})
         .steps__wrapper
             .more-info.more-info_disabled
-                .more-info__top-wrapper.steps__top-title
+                .more-info__top-wrapper.steps__top-title(class="wow animate__fadeInUp" data-wow-duration="2s")
                     .more-info__top(data-anchor="steps")
                         .more-info__icon-wrapper
                             svg.more-info__icon
                                 use(xlink:href='./img/sprites/sprite.svg#arrow-down')
-                        h4.more-info__title Как использовать Kaleydo EVO mini в 4 шага?
+                        h4.more-info__title
+                            span.more-info__dotted Как использовать Kaleydo EVO mini в 4 шага?
                         .more-info__icon-wrapper
                             svg.more-info__icon
                                 use(xlink:href='./img/sprites/sprite.svg#arrow-down')
@@ -18,30 +22,30 @@ mixin steps({className = false})
                             ul.steps__list
                                 li.steps__item.steps__item_1.steps__item_active
                                     .steps__icon
-                                    .steps__text 1. Сканируйте
+                                    .steps__text Сканируйте
                                 li.steps__item.steps__item_2
                                     .steps__icon
-                                    .steps__text 2. Выбирайте
+                                    .steps__text Выбирайте
                                 li.steps__item.steps__item_3
                                     .steps__icon
-                                    .steps__text 3. Визуализируйте
+                                    .steps__text Визуализируйте
                                 li.steps__item.steps__item_4
                                     .steps__icon
-                                    .steps__text 4. Создавайте
+                                    .steps__text Создавайте
                             ul.steps__descriptions
                                 li.steps__description.steps__description_active
-                                    p.steps__description-inner 1. Просканируйте нужный вам цвет и просматрите его через приложение
+                                    p.steps__description-inner <span class="steps__description-count">1.</span> Просканируйте нужный вам цвет и просматрите его через приложение
                                     .steps__description-images
                                         a.steps__description-image-wrapper(href="https://" target="_blank")
                                             +iconImg({iconName: 'applestore', className: 'steps__description-icon'})
                                         a.steps__description-image-wrapper(href="https://" target="_blank")
                                             +iconImg({iconName: 'googleplay', className: 'steps__description-icon'})
                                 li.steps__description
-                                    p.steps__description-inner 2. Создавайте вашу собственную палитру цветов
+                                    p.steps__description-inner <span class="steps__description-count">2.</span> Создавайте вашу собственную палитру цветов
                                 li.steps__description
-                                    p.steps__description-inner 3. Посмотрите выбранный цвт и найдит лучший источник вдохновения припомощи различных визуализаций
+                                    p.steps__description-inner <span class="steps__description-count">3.</span> Посмотрите выбранный цвт и найдит лучший источник вдохновения припомощи различных визуализаций
                                 li.steps__description
-                                    p.steps__description-inner 4. Создайте свою собственную краску с выбранным  цветом при помощи Tntnext и Amatching от Alcea
+                                    p.steps__description-inner <span class="steps__description-count">4.</span> Создайте свою собственную краску с выбранным  цветом при помощи Tntnext и Amatching от Alcea
                         ul.steps__gallery
                             li.steps__slide.steps__slide_active
                                 img(class="steps__slide-img" src="./img/steps-slide-1.jpg" alt="")
