@@ -1,6 +1,7 @@
 mixin modal-b()
     include ../../components/nav/nav
     include ../../components/socials/socials
+    include ../../components/languages/languages
     .modal-b(id="form")
         .modal-b__wrapper
             .modal-b__inner
@@ -67,3 +68,4 @@ mixin modal-b()
                     +socials({className: 'nav-wrapper__socials'})
                     .modal-b__button-wrapper
                         button.btn.nav-wrapper__button(data-call-form) Заказать
+                    +languages({className: 'nav-wrapper__languages'})

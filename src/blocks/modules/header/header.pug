@@ -5,6 +5,7 @@ mixin header({className = false})
     include ../../components/advantages/advantages
     include ../../components/gallery/gallery
     include ../../components/parallax-stripes/parallax-stripes
+    include ../../components/languages/languages
 
     header.header(class=className id="header")
         +parallax-stripes({className: 'header__parallax'})
@@ -16,9 +17,7 @@ mixin header({className = false})
                     +icon({iconName: 'kaleydo-icon', className: 'nav-row__logo-inner', viewBoxName: '0 0 39 30'})
                     +icon({iconName: 'kaleydo-text', className: 'nav-row__logo-text', viewBoxName: '0 0 174 15'})
             .nav-row__info
-                .languages.nav-row__languages
-                    a(class="languages__item languages__item_active" href="./") рус
-                    a(class="languages__item" href="./") eng
+                +languages({className: 'nav-row__languages'})
                 +socials({className: 'socials_small nav-row__socials'})
                 button.btn.btn_small.nav-row__button(data-offer-call) Заказать
         .top-section
