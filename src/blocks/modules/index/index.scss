@@ -4,8 +4,6 @@
     }
     position: relative;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     color: $light;
     background-color: $dark;
 
@@ -23,14 +21,9 @@
             padding-top: 40px;
         }
         @include container();
-        width: 100%;
         padding: {
             top: 80px;
             bottom: 125px;
-        }
-        margin: {
-            top: auto;
-            bottom: auto;
         }
     }
     &__inner {

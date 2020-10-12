@@ -1,7 +1,10 @@
-mixin gexagon({className})
+mixin gexagon({className = false, isThanks = false})
     .gexagon-wrapper
-        .gexagon
-            +icon({iconName: 'horse', className: 'gexagon__icon', viewBoxName: '0 0 58 59'})
+        .gexagon(class=className)
+            if (isThanks === false)
+                +icon({iconName: 'horse', className: 'gexagon__icon', viewBoxName: '0 0 58 59'})
+            else if (isThanks === true)
+                .gexagon__icon-check
             span.gexagon__line.gexagon__line_1
             span.gexagon__line.gexagon__line_2
             span.gexagon__line.gexagon__line_3

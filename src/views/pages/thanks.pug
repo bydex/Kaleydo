@@ -2,11 +2,11 @@ extends ../layouts/default
 include ../helpers/mixins
 
 block variables
-	- const title = "Kaleydo"
+	- const title = "Kaleydo - thanks"
 
 block content
-	include ../../blocks/modules/404/404
-	+404({})
+	include ../../blocks/modules/thanks/thanks
+	+thanks({})
 block scripts
 	script(src="js/main.js")
 	script(src="js/vendor.js")

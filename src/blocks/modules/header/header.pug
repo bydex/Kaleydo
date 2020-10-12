@@ -1,4 +1,4 @@
-mixin header({className = false})
+mixin header({className = false, is404 = false, isThanks = false})
     include ../../components/hamburger/hamburger
     include ../../components/nav/nav
     include ../../components/socials/socials
@@ -6,6 +6,7 @@ mixin header({className = false})
     include ../../components/gallery/gallery
     include ../../components/parallax-stripes/parallax-stripes
     include ../../components/languages/languages
+    include ../../components/gexagon/gexagon
 
     header.header(class=className id="header")
         +parallax-stripes({className: 'header__parallax'})
@@ -26,30 +27,53 @@ mixin header({className = false})
                     +icon({iconName: 'logo',
                             className: 'top-section__logo'})
                 .top-section__description Устройство, которое определяет цвета с любой поверхности
-        .header__wrapper
-            .header__inner
-                .header__text
-                    .header__title-block
-                        h1.header__title(class="wow animate__fadeInUp" data-wow-duration="1s") Просканируй при помощи <mark class="mark">Kaleydo EVO mini</mark> любой цвет
-                        p.header__subtitle(class="wow animate__fadeInUp" data-wow-duration="2s") который привлек ваше внимание
-                    +advantages({className: 'header__advantages'})
-                    .more-info.more-info_disabled(class="header__more-info wow animate__fadeInUp" data-wow-duration="1.5s")
-                        .more-info__top-wrapper
-                            .more-info__top
-                                .more-info__icon-wrapper
-                                    +icon({iconName: 'arrow-down', className: 'more-info__icon'})
-                                h4.more-info__title
-                                    span.more-info__dotted Больше информации
-                                .more-info__icon-wrapper
-                                    +icon({iconName: 'arrow-down', className: 'more-info__icon'})
-                        .more-info__dropdown(data-open="false")
-                            a.download-link.more-info__link(href="./pdf-small.pdf" download)
-                                | Скачать BROCHURE KALEYDO_EVO_ENG - 523Кб
-                                +icon({iconName: 'pdf', className: 'download-link__icon'})
-                            a.download-link.more-info__link(href="./pdf-big.pdf" download)
-                                | Скачать KALEYDO_Evo_eng - 2,61 Мб
-                                +icon({iconName: 'pdf', className: 'download-link__icon'})
-                .header__gallery
-                    +gallery({className: 'header__gallery-wrapper'})
-            .header__mouse-wrapper(data-anchor="video")
-                +icon({iconName: 'mouse', className: 'header__mouse'})
+        if (is404 !== true && isThanks !== true)
+            .header__wrapper
+                .header__inner
+                    .header__text
+                        .header__title-block
+                            h1.header__title(class="wow animate__fadeInUp" data-wow-duration="1s") Просканируй при помощи <mark class="mark">Kaleydo EVO mini</mark> любой цвет
+                            p.header__subtitle(class="wow animate__fadeInUp" data-wow-duration="2s") который привлек ваше внимание
+                        +advantages({className: 'header__advantages'})
+                        .more-info.more-info_disabled(class="header__more-info wow animate__fadeInUp" data-wow-duration="1.5s")
+                            .more-info__top-wrapper
+                                .more-info__top
+                                    .more-info__icon-wrapper
+                                        +icon({iconName: 'arrow-down', className: 'more-info__icon'})
+                                    h4.more-info__title
+                                        span.more-info__dotted Больше информации
+                                    .more-info__icon-wrapper
+                                        +icon({iconName: 'arrow-down', className: 'more-info__icon'})
+                            .more-info__dropdown(data-open="false")
+                                a.download-link.more-info__link(href="./pdf-small.pdf" download)
+                                    | Скачать BROCHURE KALEYDO_EVO_ENG - 523Кб
+                                    +icon({iconName: 'pdf', className: 'download-link__icon'})
+                                a.download-link.more-info__link(href="./pdf-big.pdf" download)
+                                    | Скачать KALEYDO_Evo_eng - 2,61 Мб
+                                    +icon({iconName: 'pdf', className: 'download-link__icon'})
+                    .header__gallery
+                        +gallery({className: 'header__gallery-wrapper'})
+                .header__mouse-wrapper(data-anchor="video")
+                    +icon({iconName: 'mouse', className: 'header__mouse'})
+        else if (is404 === true)
+            .not-found__wrapper
+                .not-found__inner
+                    .not-found__col
+                        h1.not-found__title 404
+                        h2.not-found__subtitle К сожалению, запрошенная вами страница не существует
+                        a.go-back(href="./")
+                            .go-back__icon
+                                +icon({iconName: 'arrow-left', className: 'go-back__icon-inner', viewBoxName: '0 0 18 32'})
+                            .go-back__text На главную
+        else if (isThanks === true)
+            .thanks__wrapper
+                .thanks__inner
+                    .thanks__col
+                        h1.thanks__title Спасибо, <br>ваш заказ принят
+                        h2.thanks__subtitle Менеджер перезвонит Вам, чтобы уточнить детали доставки и оплаты.
+                        a.go-back(href="./")
+                            .go-back__icon
+                                +icon({iconName: 'arrow-left', className: 'go-back__icon-inner', viewBoxName: '0 0 18 32'})
+                            .go-back__text На главную
+                    .thanks__gexagon
+                        +gexagon({className: 'gexagon_thanks', isThanks: true})

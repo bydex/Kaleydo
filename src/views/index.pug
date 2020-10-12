@@ -5,21 +5,8 @@ block variables
 	- const title = "Kaleydo"
 
 block content
-	include ../blocks/modules/modal-b/modal-b
-	include ../blocks/modules/header/header
-	include ../blocks/modules/video/video
-	include ../blocks/modules/steps/steps
-	include ../blocks/modules/about/about
-	include ../blocks/modules/footer/footer
-	.wrapper
-		+modal-b({})
-		+header({})
-		+video({})
-		+steps({})
-		+about({})
-		+footer({})
-		.link-top(data-anchor="header")
-			+icon({iconName: 'arrow-top', className: 'link-top__icon'})
+	include ../blocks/modules/index/index
+	+index({})
 block scripts
 	script(src="js/main.js")
 	script(src="js/vendor.js")

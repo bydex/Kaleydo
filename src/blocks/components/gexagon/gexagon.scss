@@ -22,6 +22,38 @@
     min-width: 300px;
     min-height: 300px;
 
+    &_thanks {
+        min-width: 220px;
+        min-height: 220px;
+    }
+    &__icon-check {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-43%, -64%) rotate(44deg);
+        width: 26px;
+        height: 57px;
+    }
+    &__icon-check:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 2px;
+        background-color: $light;
+        box-shadow: 0px 0px 20px 10px #5A299B;
+    }
+    &__icon-check:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background-color: $light;
+        box-shadow: 0px 0px 20px 10px #C75E46;
+    }
     &__icon {
         @media (max-width: $break_xss) {
             max-width: 58px;

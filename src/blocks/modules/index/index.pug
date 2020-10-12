@@ -1,0 +1,16 @@
+mixin index({className = false})
+    include ../modal-b/modal-b
+    include ../header/header
+    include ../video/video
+    include ../steps/steps
+    include ../about/about
+    include ../footer/footer
+    .wrapper
+        +modal-b({})
+        +header({})
+        +video({})
+        +steps({})
+        +about({})
+        +footer({})
+        .link-top(data-anchor="header")
+            +icon({iconName: 'arrow-top', className: 'link-top__icon'})
