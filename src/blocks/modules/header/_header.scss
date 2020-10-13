@@ -99,6 +99,12 @@
             property: fill, stroke, transform;
             duration: .5s;
         }
+        overflow: visible;
+    }
+    &__mouse-arrows {
+        animation-name: fadeInUp;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
     }
     &__more-info {
         @media (max-width: $break_sm) {

@@ -14,7 +14,7 @@ mixin header({className = false, is404 = false, isThanks = false})
             .nav-row__hamburger(data-modal-id="menu")
                 +hamburger({className: 'nav-row__hamburger'})
             .nav-row__wrapper
-                .nav-row__logo
+                .nav-row__logo(data-anchor="header")
                     +icon({iconName: 'kaleydo-icon', className: 'nav-row__logo-inner', viewBoxName: '0 0 39 30'})
                     +icon({iconName: 'kaleydo-text', className: 'nav-row__logo-text', viewBoxName: '0 0 174 15'})
             .nav-row__info
@@ -54,7 +54,11 @@ mixin header({className = false, is404 = false, isThanks = false})
                     .header__gallery
                         +gallery({className: 'header__gallery-wrapper'})
                 .header__mouse-wrapper(data-anchor="video")
-                    +icon({iconName: 'mouse', className: 'header__mouse'})
+                    <svg class="header__mouse" width="24" height="59" viewBox="0 0 24 59" xmlns="http://www.w3.org/2000/svg">
+                        <path class="header__mouse-arrows" d="M18 43L12 49L6 43" fill="none" />
+                        <path class="header__mouse-arrows" d="M18 51L12 57L6 51" fill="none" />
+                        <path d="M12 0C5.37273 0 0 5.54063 0 12.375V23.625C0 30.4594 5.37273 36 12 36C18.6273 36 24 30.4594 24 23.625V12.375C24 5.54063 18.6273 0 12 0ZM15.2727 13.5C15.2727 15.3562 13.8 16.875 12 16.875C10.2 16.875 8.72727 15.3562 8.72727 13.5V9C8.72727 7.14375 10.2 5.625 12 5.625C13.8 5.625 15.2727 7.14375 15.2727 9V13.5Z" stroke="transparent"/>
+                    </svg>
         else if (is404 === true)
             .not-found__wrapper
                 .not-found__inner

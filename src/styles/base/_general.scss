@@ -30,32 +30,47 @@ $navHeight: 60px;
     @include xl(max-width, 991px);
     @include lg(max-width, 100%);
 }
-
-@keyframes fadeInUp {
+.animate__slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+}
+@keyframes slideInLeft {
   from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
   }
 
   to {
-    opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
 .animate__fadeInUp {
-  -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
 }
 .animate__animated {
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-duration: var(--animate-duration);
-  animation-duration: var(--animate-duration);
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+.animate__animated.animate__infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.animate__animated.animate__slower {
+  animation-duration: calc(1s * 3);
+}
+
 ::selection {
     color: $light;
     background-color: $red;
@@ -282,6 +297,8 @@ ul {
             property: opacity;
             duration: .5s;
         }
+        pointer-events: all;
+        cursor: pointer;
     }
     &__logo-inner {
         width: 100%;
@@ -459,6 +476,9 @@ ul {
     }
 }
 .more-info_disabled {
+    .rellax {
+        opacity: 0;
+    }
     .more-info__top {
         color: #424242;
         stroke: currentColor;
@@ -883,6 +903,7 @@ ul {
     height: 0;
     border-radius: 50%;
     border: 4px solid $light;
+    mix-blend-mode: difference;
     pointer-events: none;
     transition: {
         property: opacity;
@@ -901,7 +922,12 @@ ul {
     height: 30px;
     border-radius: 50%;
     border: 2px solid $light;
+    mix-blend-mode: difference;
     pointer-events:  none;
+    transition: {
+        property: opacity;
+        duration: .3s;
+    }
 }
 
 

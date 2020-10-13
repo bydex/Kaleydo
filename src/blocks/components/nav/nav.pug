@@ -7,9 +7,12 @@ mixin nav({className = false, activeLink = '/'})
     nav.nav(class=className)
         ul.nav__links
             each val, index in pageNames
-                if (val.link !== activeLink)
+                if (val.link !== activeLink && val.link !== 'steps')
                     li.nav__item
                         a.nav__link(href='javascript:;' data-close-modal data-anchor-timeout="1000" data-anchor=val.link)= val.title
+                else if (val.link === 'steps')
+                    li.nav__item
+                        a.nav__link(href='javascript:;' data-steps-open data-close-modal data-anchor-timeout="1000" data-anchor=val.link)= val.title
                 else
                     li.nav__item
                         a.nav__link.nav__link_active(href='javascript:;' data-close-modal data-anchor-timeout="1000" data-anchor=val.link)= val.title
