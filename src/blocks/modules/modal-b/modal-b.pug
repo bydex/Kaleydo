@@ -5,7 +5,7 @@ mixin modal-b()
     .modal-b(id="form")
         .modal-b__wrapper
             .modal-b__inner
-                .modal-b__form.form.gallery
+                form.modal-b__form.form.gallery.glide
                     h2.form__title Заказать
                     .form__dots-wrapper
                         .gallery__dots.form__dots(data-glide-el='controls[nav]')
@@ -18,23 +18,25 @@ mixin modal-b()
                                 | +
                                 +icon({iconName: 'gallery-icon-2', className: 'gallery__dot-icon'})
                         .gallery__title-wrapper
-                            h3.gallery__title Kaleydo Evo mini
+                            h3.gallery__title.gallery__title_active Kaleydo Evo mini
+                            h3.gallery__title КаталогAlcea
+                            h3.gallery__title Kaleydo Evo mini + КаталогAlcea
                     .form__inputs
                         .input-wrapper.input-wrapper_name.form__input
                             +icon({iconName: 'input-user', className: 'input-wrapper__icon'})
-                            input.input-wrapper__input(type="text" placeholder="Ваше имя")
+                            input.input-wrapper__input(type="name" placeholder="Ваше имя")
                         .input-wrapper.input-wrapper_tel.form__input
                             +icon({iconName: 'input-phone', className: 'input-wrapper__icon'})
                             input.input-wrapper__input(type="tel" placeholder="+7 (___) ___ __ __")
                     p.form__agreement Нажимая на кнопку, вы принимаете <a class="link" herf="" target="_blank">Положение и Согласие</a> на обработку персональных данных
-                    .gallery__info-wrapper.glide
+                    .gallery__info-wrapper
                         .gallery__info-track.glide__track(data-glide-el="track")
                             ul.gallery__info-slides.glide__slides
                                 li.gallery__info-item
                                     .gallery__info
                                         .gallery__price-wrapper
                                             p.gallery__price
-                                                | €400.00 EUR
+                                                span(data-price) €400.00 EUR
                                                 +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                             p.gallery__price-old €500.00 EUR
                                         button.gallery__button.btn Заказать
@@ -45,7 +47,7 @@ mixin modal-b()
                                     .gallery__info
                                         .gallery__price-wrapper
                                             p.gallery__price
-                                                | €150.00 EUR
+                                                span(data-price) €150.00 EUR
                                                 +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                             p.gallery__price-old €200.00 EUR
                                         button.gallery__button.btn Заказать
@@ -53,7 +55,7 @@ mixin modal-b()
                                     .gallery__info
                                         .gallery__price-wrapper
                                             p.gallery__price
-                                                | €150.00 EUR
+                                                span(data-price) €150.00 EUR
                                                 +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                             p.gallery__price-old €200.00 EUR
                                         button.gallery__button.btn Заказать
@@ -69,7 +71,7 @@ mixin modal-b()
                     .modal-b__button-wrapper
                         button.btn.nav-wrapper__button(data-call-form) Заказать
                     +languages({className: 'nav-wrapper__languages'})
-    .modal-b(id="privacy")
+    .modal-b(id="policy")
         .modal-b__wrapper.modal-text
             .modal-b__inner
                 .modal-text__wrapper

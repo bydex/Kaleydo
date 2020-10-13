@@ -3,6 +3,11 @@
 
     z-index: 10;
     display: flex;
+
+    &__inner {
+        display: flex;
+        animation: parallax 5s infinite;
+    }
     &__line {
         display: block;
         min-width: 2px;
@@ -14,4 +19,17 @@
         margin-right: 30px;
         transform: translateY(-60px);
     }
+}
+
+@keyframes parallax {
+  0% {
+    transform: translateX(-15px);
+}
+
+    50% {
+    transform: translateX(15px);
+  }
+  100% {
+      transform: translateX(-15px);
+  }
 }
