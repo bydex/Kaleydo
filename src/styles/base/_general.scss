@@ -141,6 +141,11 @@ html, body {
     }
     .nav-row__info {
         opacity: 0;
+        visibility: hidden;
+    }
+    .nav-row .nav-row__logo {
+        opacity: 0;
+        visibility: hidden;
     }
 }
 html *,
@@ -294,7 +299,7 @@ ul {
         fill: currentColor;
         opacity: 0;
         transition: {
-            property: opacity;
+            property: opacity,visibility;
             duration: .5s;
         }
         pointer-events: all;
@@ -320,7 +325,7 @@ ul {
         align-items: center;
         margin-left: auto;
         transition: {
-            property: opacity;
+            property: opacity, visibility;
             duration: .5s;
         }
         pointer-events: all;
@@ -368,14 +373,14 @@ ul {
     &__wrapper {
         @include container();
         width: 100%;
-        padding: {
-            top: 100px;
-            bottom: 100px;
-        }
     }
     &__inner {
         @include row-flex();
         justify-content: center;
+        padding: {
+            top: 100px;
+            bottom: 100px;
+        }
     }
     &__nav-wrapper {
         @include col();

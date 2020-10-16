@@ -107,7 +107,7 @@
         }
         align-items: center;
         justify-content: center;
-        min-height: calc(100vh - #{$navHeight});
+        min-height: calc(var(--vh, 1vh) * 100 - #{$navHeight});
     }
     &__col {
         @include col();

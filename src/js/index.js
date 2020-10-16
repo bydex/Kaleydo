@@ -10,6 +10,15 @@ import maskInput from 'vanilla-text-mask';
 import WOW from 'wow.js';
 
 
+
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
+
 new WOW().init();
 
 const inputTel = document.querySelectorAll("input[type='tel']"),
@@ -103,15 +112,16 @@ form.addEventListener('submit', function(e) {
 
 
 
-
-const rellax = new Rellax('.rellax', {
-    speed: -2,
-    center: true,
-    wrapper: null,
-    round: true,
-    vertical: true,
-    horizontal: false,
-});
+if (window.innerWidth > 991) {
+    const rellax = new Rellax('.rellax', {
+        speed: -2,
+        center: true,
+        wrapper: null,
+        round: true,
+        vertical: true,
+        horizontal: false,
+    });
+}
 
 
 const navHeight = 60;
@@ -368,46 +378,47 @@ steps.forEach((el) => {
 
 
 (() => {
-    const cursor = document.querySelector(".cursor");
-    const cursorInner = document.querySelector(".cursor-inner");
-    const widthCursor = cursor.getBoundingClientRect().width;
-    const heightCursor = cursor.getBoundingClientRect().height;
-    const widthCursorInner = cursorInner.getBoundingClientRect().width;
-    const heightCursorInner = cursorInner.getBoundingClientRect().height;
+    if (window.innerWidth > 991) {
+        const cursor = document.querySelector(".cursor");
+        const cursorInner = document.querySelector(".cursor-inner");
+        const widthCursor = cursor.getBoundingClientRect().width;
+        const heightCursor = cursor.getBoundingClientRect().height;
+        const widthCursorInner = cursorInner.getBoundingClientRect().width;
+        const heightCursorInner = cursorInner.getBoundingClientRect().height;
 
-    document.body.addEventListener("mousemove", function (event) {
-        const x = event.x;
-        const y = event.y;
+        document.body.addEventListener("mousemove", function (event) {
+            const x = event.x;
+            const y = event.y;
 
-        setTimeout(() => {
-            setCursorPosition(x, y);
-        }, 100);
-    });
-    document.addEventListener("mouseenter", function (event) {
-        cursor.style.opacity = 1;
-        cursorInner.style.opacity = 1;
-    });
-    document.addEventListener("mouseleave", function (event) {
-        cursorInner.style.opacity = 0;
-        cursor.style.opacity = 0;
-    });
+            setTimeout(() => {
+                setCursorPosition(x, y);
+            }, 100);
+        });
+        document.addEventListener("mouseenter", function (event) {
+            cursor.style.opacity = 1;
+            cursorInner.style.opacity = 1;
+        });
+        document.addEventListener("mouseleave", function (event) {
+            cursorInner.style.opacity = 0;
+            cursor.style.opacity = 0;
+        });
 
-    function setCursorPosition(x, y) {
-        let xDot = x - widthCursorInner / 2;
-        let yDot = y - heightCursorInner / 2;
-
-
-        x -= widthCursor / 2;
-        y -= heightCursor / 2;
+        function setCursorPosition(x, y) {
+            let xDot = x - widthCursorInner / 2;
+            let yDot = y - heightCursorInner / 2;
 
 
-        setTimeout(() => {
-            cursor.style.transform = `translate(${x}px, ${y}px)`;
-        }, 100);
-        cursorInner.style.transform = `translate(${xDot}px, ${yDot}px)`;
+            x -= widthCursor / 2;
+            y -= heightCursor / 2;
+
+
+            setTimeout(() => {
+                cursor.style.transform = `translate(${x}px, ${y}px)`;
+            }, 100);
+            cursorInner.style.transform = `translate(${xDot}px, ${yDot}px)`;
+        }
     }
 })();
-
 
 
 
