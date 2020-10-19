@@ -233,13 +233,50 @@ ul {
         user-select: none;
     }
     &__description {
-        @media (max-width: $break_xss) {
+        @media (max-width: $break_xs) {
+            max-width: 115px;
             font-size: 10px;
             flex-grow: 1;
+            margin-left: 0;
         }
+        @include sm(font-size, 12px);
         @include col();
         max-width: 277px;
         line-height: 125%;
+    }
+    &__links {
+        @media (max-width: $break_xss) {
+            align-items: center;
+        }
+        @media (max-width: $break_xs) {
+            margin-left: auto;
+        }
+        @include col();
+        display: flex;
+        align-items: flex-start;
+    }
+    &__link {
+        @include xs(margin-right, 10px);
+        @include sm(margin-right, 16px);
+        margin-right: 40px;
+    }
+    &__link:last-child {
+        @include xs(margin-right, 0);
+        @include sm(margin-right, 0);
+        margin-bottom: 0;
+    }
+    &__link-icon {
+        @include xs(height, 11px);
+        @include sm(height, 16px);
+        height: 25px;
+        transition: {
+            property: color, transform;
+            duration: .5s;
+        };
+    }
+    &__link-icon:hover {
+        color: $red;
+        transform: scale(1.2);
     }
 }
 
@@ -377,6 +414,8 @@ ul {
     &__inner {
         @include row-flex();
         justify-content: center;
+        align-items: center;
+        height: 100%;
         padding: {
             top: 100px;
             bottom: 100px;
@@ -399,6 +438,7 @@ ul {
 // BLOCK $more-info
 .more-info {
     &__dotted {
+        padding-bottom: 3px;
         background-image: linear-gradient(to right, currentColor 33%, rgba(255,255,255,0) 0%);
         background-position: bottom;
         background-size: 3px 1px;
@@ -438,6 +478,7 @@ ul {
             left: 9px;
             right: 9px;
         }
+        font-weight: 500;
         overflow: hidden;
     }
     &__icon-wrapper {
@@ -566,6 +607,41 @@ ul {
             font-size: 12px;
         }
         font-size: 16px;
+    }
+
+    &__links {
+        @media (max-width: $break_lg) {
+            margin-bottom: 32px;
+        }
+        display: flex;
+        justify-content: center;
+        margin-bottom: 60px;
+    }
+    &__link {
+        @media (max-width: $break_lg) {
+            margin-right: 24px;
+        }
+        margin-right: 40px;
+        transition: {
+            property: color, transform;
+            duration: .5s;
+        }
+    }
+    &__link-icon {
+        @media (max-width: $break_lg) {
+            height: 24px;
+        }
+        height: 30px;
+    }
+    &__link:hover {
+        color: $red;
+        transform: scale(1.2);
+    }
+    &__link:last-child {
+        @media (max-width: $break_lg) {
+            margin-right: 0;
+        }
+        margin-right: 0;
     }
 }
 

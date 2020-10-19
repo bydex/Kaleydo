@@ -97,6 +97,27 @@ form.addEventListener('submit', function(e) {
     formData.append("Цена", slide.textContent);
 
 
+    let url = `https://api.telegram.org/bot1228056654:AAGp2hpsXamGiPB3sFBe4e-c2xCs0-IBL14/sendMessage`;
+    let data = {
+        "chat_id": "439338402",
+        "text": `Имя: ${name.value}\n Номер телефона: ${tel.value}\n Название продукта: ${title.textContent}\n Цена: ${slide.textContent}`  ,
+    };
+
+    fetch(url, {
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: "POST",
+    })
+        .then(function (response) {
+            console.log("sended");
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+        });
+
     fetch("mail.php", {
         body: formData,
         method: "post",

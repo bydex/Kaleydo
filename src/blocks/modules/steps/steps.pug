@@ -9,12 +9,12 @@ mixin steps({className = false})
                     .more-info__top(data-anchor="steps")
                         .more-info__icon-wrapper
                             svg.more-info__icon
-                                use(xlink:href='./img/sprites/sprite.svg#arrow-down')
+                                use(xlink:href='./img/sprites/sprite.svg#two-arrows-down')
                         h4.more-info__title
-                            span.more-info__dotted Как использовать Kaleydo EVO mini в 4 шага?
+                            span.more-info__dotted Kaleydo EVO mini в 4 шага
                         .more-info__icon-wrapper
                             svg.more-info__icon
-                                use(xlink:href='./img/sprites/sprite.svg#arrow-down')
+                                use(xlink:href='./img/sprites/sprite.svg#two-arrows-down')
                 .more-info__dropdown(data-open="false")
                     .steps__inner.steps__middle
                         .steps__info
@@ -36,9 +36,9 @@ mixin steps({className = false})
                                 li.steps__description.steps__description_active
                                     p.steps__description-inner <span class="steps__description-count">1.</span> Просканируйте нужный вам цвет и просматрите его через приложение
                                     .steps__description-images
-                                        a.steps__description-image-wrapper(href="https://play.google.com/store/apps/details?id=com.getudo.alcea.android&hl=ru" target="_blank")
-                                            +iconImg({iconName: 'applestore', className: 'steps__description-icon'})
                                         a.steps__description-image-wrapper(href="https://apps.apple.com/ru/app/kaleydo-evo/id1422696712" target="_blank")
+                                            +iconImg({iconName: 'applestore', className: 'steps__description-icon'})
+                                        a.steps__description-image-wrapper(href="https://play.google.com/store/apps/details?id=com.getudo.alcea.android&hl=ru" target="_blank")
                                             +iconImg({iconName: 'googleplay', className: 'steps__description-icon'})
                                 li.steps__description
                                     p.steps__description-inner <span class="steps__description-count">2.</span> Создавайте вашу собственную палитру цветов
@@ -50,7 +50,8 @@ mixin steps({className = false})
                             li.steps__slide.steps__slide_active
                                 img(class="steps__slide-img" src="./img/steps-slide-1.jpg" alt="")
                             li.steps__slide
-                                img(class="steps__slide-img" src="./img/steps-slide-2.gif" alt="")
+                                video.steps__slide-img(loop muted playislie autoplay)
+                                    source(src="./img/steps-slide-2.mp4")
                             li.steps__slide
                                 img(class="steps__slide-img" src="./img/steps-slide-3.jpg" alt="")
                             li.steps__slide
@@ -71,12 +72,13 @@ mixin steps({className = false})
                                 .steps__advantage-info
                                     h4.steps__advantage-title Можете подобрать любые цвета с
                                     p.steps__advantage-description красок, принтов, текстиля, пластика, еды и прочего
-                        .more-info__top-wrapper.steps__top-title.steps__bottom-title
+                        .more-info__top-wrapper.steps__bottom-title
                             .more-info__top.more-info__top_small
                                 .more-info__icon-wrapper
                                     svg.more-info__icon
                                         use(xlink:href='./img/sprites/sprite.svg#arrow-down')
-                                h4.more-info__title Спасибо, теперь понятно
+                                h4.more-info__title
+                                    span.more-info__dotted Спасибо, теперь понятно
                                 .more-info__icon-wrapper
                                     svg.more-info__icon
                                         use(xlink:href='./img/sprites/sprite.svg#arrow-down')

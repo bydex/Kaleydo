@@ -28,7 +28,7 @@ mixin modal-b()
                         .input-wrapper.input-wrapper_tel.form__input
                             +icon({iconName: 'input-phone', className: 'input-wrapper__icon'})
                             input.input-wrapper__input(type="tel" placeholder="+7 (___) ___ __ __")
-                    p.form__agreement Нажимая на кнопку, вы принимаете <a class="link" herf="" target="_blank">Положение и Согласие</a> на обработку персональных данных
+                    p.form__agreement Нажимая на кнопку, вы принимаете <a class="link" data-id="policy" href="javascript:;" target="_blank">Положение и Согласие</a> на обработку персональных данных
                     .gallery__info-wrapper
                         .gallery__info-track.glide__track(data-glide-el="track")
                             ul.gallery__info-slides.glide__slides
@@ -67,6 +67,11 @@ mixin modal-b()
             .modal-b__inner
                 .modal-b__nav-wrapper.nav-wrapper
                     +nav({className: 'nav-wrapper__nav'})
+                    .nav-wrapper__links
+                        a.nav-wrapper__link(href="https://apps.apple.com/ru/app/kaleydo-evo/id1422696712" target="_blank")
+                            +icon({iconName: 'applestore', className: 'nav-wrapper__link-icon', viewBoxName: '0 0 111 30'})
+                        a.nav-wrapper__link(href="https://play.google.com/store/apps/details?id=com.getudo.alcea.android&hl=ru" target="_blank")
+                            +icon({iconName: 'googleplay', className: 'nav-wrapper__link-icon', viewBoxName: '0 0 126 30'})
                     +socials({className: 'nav-wrapper__socials'})
                     .modal-b__button-wrapper
                         button.btn.nav-wrapper__button(data-call-form) Заказать

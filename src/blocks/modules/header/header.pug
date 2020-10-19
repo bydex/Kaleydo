@@ -27,6 +27,11 @@ mixin header({className = false, is404 = false, isThanks = false})
                     +icon({iconName: 'logo',
                             className: 'top-section__logo'})
                 .top-section__description Устройство, которое определяет цвета с любой поверхности
+                .top-section__links
+                    a.top-section__link(href="https://apps.apple.com/ru/app/kaleydo-evo/id1422696712" target="_blank")
+                        +icon({iconName: 'applestore', className: 'top-section__link-icon', viewBoxName: '0 0 111 30'})
+                    a.top-section__link(href="https://play.google.com/store/apps/details?id=com.getudo.alcea.android&hl=ru" target="_blank")
+                        +icon({iconName: 'googleplay', className: 'top-section__link-icon', viewBoxName: '0 0 126 30'})
         if (is404 !== true && isThanks !== true)
             .header__wrapper
                 .header__inner
