@@ -420,7 +420,7 @@ ul {
         @include row-flex();
         justify-content: center;
         align-items: center;
-        height: 100%;
+        min-height: 100%;
         padding: {
             top: 100px;
             bottom: 100px;
@@ -1551,7 +1551,11 @@ ul {
     &__text:last-child {
         margin-bottom: 0;
     }
-    &__wrapper {
-        padding-bottom: 100px;
-    }
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }

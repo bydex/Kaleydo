@@ -152,7 +152,7 @@ let imgSlider;
 imgSlider = new Glide(".header__gallery-wrapper .gallery__img-wrapper", {
     animationDuration: 0,
     rewindDuration: 0,
-    autoplay: 2000,
+    autoplay: 4000,
     hoverpause: true,
 });
 const infoSlider = new Glide(".header__gallery-wrapper .gallery__info-wrapper", {

@@ -13,5 +13,6 @@ mixin thanks({className = false})
 
     .wrapper
         +modal-b({})
-        +header({className: 'thanks', isThanks: true})
-        +footer({})
+        main.main
+            +header({className: 'thanks', isThanks: true})
+            +footer({})

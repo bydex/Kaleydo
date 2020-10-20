@@ -141,7 +141,7 @@ mixin header({className = false, is404 = false, isThanks = false})
                     .not-found__col
                         h1.not-found__title 404
                         h2.not-found__subtitle !{page404.subtitle[lang]}
-                        a.go-back(href=page404.href[lang])
+                        a.go-back(href=page404.backBtn.href[lang])
                             .go-back__icon
                                 +icon({iconName: 'arrow-left', className: 'go-back__icon-inner', viewBoxName: '0 0 18 32'})
                             .go-back__text !{page404.backBtn[lang]}
@@ -151,7 +151,7 @@ mixin header({className = false, is404 = false, isThanks = false})
                     .thanks__col
                         h1.thanks__title !{pageThanks.title[lang]}
                         h2.thanks__subtitle !{pageThanks.subtitle[lang]}
-                        a.go-back(href=page404.href[lang])
+                        a.go-back(href=page404.backBtn.href[lang])
                             .go-back__icon
                                 +icon({iconName: 'arrow-left', className: 'go-back__icon-inner', viewBoxName: '0 0 18 32'})
                             .go-back__text !{pageThanks.backBtn[lang]}
