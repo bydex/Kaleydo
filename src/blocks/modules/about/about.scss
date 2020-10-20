@@ -90,9 +90,6 @@
         margin-bottom: 10px;
     }
     &__description {
-        @media (max-width: $break_xss) {
-            font-size: 12px;
-        }
         @media (max-width: $break_md) {
             font-size: 14px;
         }
@@ -107,8 +104,8 @@
     }
     &__subtitle {
         @media (max-width: $break_xss) {
-            font-size: 16px;
-            font-weight: 400;
+            font-size: 22px;
+            line-height: 109%;
             margin-bottom: 14px;
         }
         @include h3();

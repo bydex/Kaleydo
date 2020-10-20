@@ -285,12 +285,13 @@
     &__description-icon {
         height: 30px;
         transition: {
-            property: transform;
+            property: transform, color;
             duration: .5s;
         }
     }
     &__description-icon:hover {
         transform: scale(1.2);
+        color: $red;
     }
     &__description-image-wrapper:first-child {
         margin-right: 60px;
@@ -313,7 +314,7 @@
         display: block;
     }
     &__slide-img {
-
+        max-width: 100%
     }
     &__inner {
 
