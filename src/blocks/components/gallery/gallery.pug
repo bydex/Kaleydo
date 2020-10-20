@@ -32,30 +32,30 @@ mixin gallery({className = false})
                 ul.gallery__info-slides.glide__slides
                     li.gallery__info-item
                         .gallery__title-wrapper
-                            h3.gallery__title(class="wow animate__fadeInUp" data-wow-duration="1.5s") Kaleydo Evo mini
+                            h3.gallery__title(class="wow animate__fadeInUp" data-wow-duration="1.5s") !{gallery.items[0].title[lang]}
                         .gallery__info
                             .gallery__price-wrapper
                                 p.gallery__price(class="wow animate__fadeInUp" data-wow-duration="1s")
                                     | €400.00 EUR
                                     +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                 p.gallery__price-old(class="wow animate__fadeInUp" data-wow-duration="1.5s") €500.00 EUR
-                            button.gallery__button.btn(data-offer-call class="wow animate__fadeInUp" data-wow-duration="1s") Заказать
+                            button.gallery__button.btn(data-offer-call class="wow animate__fadeInUp" data-wow-duration="1s") !{gallery.btn[lang]}
                         p.gallery__set(class="wow animate__fadeInUp" data-wow-duration="2s")
                             +icon({iconName: 'check', className: 'gallery__set-icon'})
-                            | В комплект входит: Kaleydo Evo mini, micro USB кабель, ремешок
+                            | !{gallery.items[0].complect[lang]}
                     li.gallery__info-item
                         .gallery__title-wrapper
-                            h3.gallery__title Каталог Alcea
+                            h3.gallery__title !{gallery.items[1].title[lang]}
                         .gallery__info
                             .gallery__price-wrapper
                                 p.gallery__price
                                     | €80.00 EUR
                                     +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                 p.gallery__price-old €100.00 EUR
-                            button.gallery__button.btn(data-offer-call) Заказать
+                            button.gallery__button.btn(data-offer-call) !{gallery.btn[lang]}
                     li.gallery__info-item
                         .gallery__title-wrapper
-                            h3.gallery__title Kaleydo Evo mini + Каталог Alcea
+                            h3.gallery__title !{gallery.items[2].title[lang]}
                         .gallery__info
                             .gallery__price-wrapper
                                 p.gallery__price
@@ -63,7 +63,7 @@ mixin gallery({className = false})
                                     +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                 p.gallery__price-old 480.00 EUR
                                 p.gallery__price-old 600.00 EUR
-                            button.gallery__button.btn(data-offer-call) Заказать
+                            button.gallery__button.btn(data-offer-call) !{gallery.btn[lang]}
                         p.gallery__set
                             +icon({iconName: 'check', className: 'gallery__set-icon'})
-                            | В комплект входит: Kaleydo Evo mini, micro USB кабель, ремешок + Каталог Alcea
+                            | !{gallery.items[2].complect[lang]}

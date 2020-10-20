@@ -1,6 +1,88 @@
 mixin steps({className = false})
     include ../../components/parallax-stripes/parallax-stripes
 
+    -
+        const steps = {
+            moreTitle: {
+                ru: 'Kaleydo EVO mini в 4 шага',
+                en: 'Kaleydo EVO mini in 4 steps'
+            },
+            title: {
+                ru: 'Используйте Kaleydo EVO mini в 4 шага',
+                en: 'Use Kaleydo EVO mini in 4 steps'
+            },
+            items: [
+                {
+                    title: {
+                        ru: 'Сканируйте',
+                        en: 'Scan'
+                    },
+                    description: {
+                        ru: 'Просканируйте нужный вам цвет и просматрите его через приложение «Kaleydo Evo mini»',
+                        en: 'Capture your color and visualize it through the app! <br> The app will search among the most common color charts, rating it via a green / yellow / red traffic light and providing visual comparison on the display.'
+                    }
+                },
+                {
+                    title: {
+                        ru: 'Выбирайте',
+                        en: 'Collect'
+                    },
+                    description: {
+                        ru: 'Создавайте вашу собственную палитру цветов',
+                        en: 'Collect all the colors for your project! <br> You can collect all your colors in customized folders.'
+                    }
+                },
+                {
+                    title: {
+                        ru: 'Визуализируйте',
+                        en: 'Render'
+                    },
+                    description: {
+                        ru: 'Посмотрите выбранный цвет и найдите лучший источник вдохновения при помощи различных визуализаций',
+                        en: 'View your colors and find your best inspiration with different renders!'
+                    }
+                },
+                {
+                    title: {
+                        ru: 'Создавайте',
+                        en: 'Create'
+                    },
+                    description: {
+                        ru: 'Создайте свою собственную краску с выбранным  цветом при помощи Tntnext и Amatching от Alcea',
+                        en: 'Сreate your own color paint thanks to tntnext and amatching software by alcea'
+                    }
+                },
+            ],
+
+            advantages: [
+                {
+                    title: {
+                        ru: 'Находите цвета в каталогах',
+                        en: 'Find colors in catalogs'
+                    },
+                    description: {
+                        ru: 'NCS, RAL, Alcea, Chroma',
+                        en: 'NCS, RAL, Alcea, Chroma'
+                    }
+                },
+                {
+                    title: {
+                        ru: 'Можете подобрать любые цвета с',
+                        en: 'Can match all colors from'
+                    },
+                    description: {
+                        ru: 'красок, принтов, текстиля, пластика, еды и прочего',
+                        en: 'paints, prints, textiles, plastics, food, other'
+                    }
+                },
+            ],
+
+            thanks: {
+                ru: 'Спасибо, теперь понятно',
+                en: 'Thank you, now I understand'
+            }
+        };
+
     section.steps(class=className id="steps")
         +parallax-stripes({className: 'steps__parallax'})
         .steps__wrapper
@@ -11,41 +93,41 @@ mixin steps({className = false})
                             svg.more-info__icon
                                 use(xlink:href='./img/sprites/sprite.svg#two-arrows-down')
                         h4.more-info__title
-                            span.more-info__dotted Kaleydo EVO mini в 4 шага
+                            span.more-info__dotted !{steps.moreTitle[lang]}
                         .more-info__icon-wrapper
                             svg.more-info__icon
                                 use(xlink:href='./img/sprites/sprite.svg#two-arrows-down')
                 .more-info__dropdown(data-open="false")
                     .steps__inner.steps__middle
                         .steps__info
-                            h1.steps__title Используйте Kaleydo EVO mini в 4 шага
+                            h1.steps__title !{steps.title[lang]}
                             ul.steps__list
                                 li.steps__item.steps__item_1.steps__item_active
                                     .steps__icon
-                                    .steps__text Сканируйте
+                                    .steps__text !{steps.items[0].title[lang]}
                                 li.steps__item.steps__item_2
                                     .steps__icon
-                                    .steps__text Выбирайте
+                                    .steps__text !{steps.items[1].title[lang]}
                                 li.steps__item.steps__item_3
                                     .steps__icon
-                                    .steps__text Визуализируйте
+                                    .steps__text !{steps.items[2].title[lang]}
                                 li.steps__item.steps__item_4
                                     .steps__icon
-                                    .steps__text Создавайте
+                                    .steps__text !{steps.items[3].title[lang]}
                             ul.steps__descriptions
                                 li.steps__description.steps__description_active
-                                    p.steps__description-inner <span class="steps__description-count">1.</span> Просканируйте нужный вам цвет и просматрите его через приложение «Kaleydo Evo mini»
+                                    p.steps__description-inner <span class="steps__description-count">1.</span> !{steps.items[0].description[lang]}
                                     .steps__description-images
                                         a.steps__description-image-wrapper(href="https://apps.apple.com/ru/app/kaleydo-evo/id1422696712" target="_blank")
                                             +icon({iconName: 'applestore', className: 'steps__description-icon', viewBoxName: '0 0 111 30'})
                                         a.steps__description-image-wrapper(href="https://play.google.com/store/apps/details?id=com.getudo.alcea.android&hl=ru" target="_blank")
                                             +icon({iconName: 'googleplay', className: 'steps__description-icon', viewBoxName: '0 0 126 30'})
                                 li.steps__description
-                                    p.steps__description-inner <span class="steps__description-count">2.</span> Создавайте вашу собственную палитру цветов
+                                    p.steps__description-inner <span class="steps__description-count">2.</span> !{steps.items[1].description[lang]}
                                 li.steps__description
-                                    p.steps__description-inner <span class="steps__description-count">3.</span> Посмотрите выбранный цвет и найдите лучший источник вдохновения при помощи различных визуализаций
+                                    p.steps__description-inner <span class="steps__description-count">3.</span> !{steps.items[2].description[lang]}
                                 li.steps__description
-                                    p.steps__description-inner <span class="steps__description-count">4.</span> Создайте свою собственную краску с выбранным  цветом при помощи Tntnext и Amatching от Alcea
+                                    p.steps__description-inner <span class="steps__description-count">4.</span> !{steps.items[3].description[lang]}
                         ul.steps__gallery
                             li.steps__slide.steps__slide_active
                                 img(class="steps__slide-img" src="./img/steps-slide-1.jpg" alt="")
@@ -62,23 +144,23 @@ mixin steps({className = false})
                                 .steps__advantage-icon-wrapper
                                     +icon({iconName: 'gallery-icon-2', className: 'steps__advantage-icon'})
                                 .steps__advantage-info
-                                    h4.steps__advantage-title Находите цвета в каталогах
-                                    p.steps__advantage-description NCS, RAL, Alcea, Chroma
+                                    h4.steps__advantage-title !{steps.advantages[0].title[lang]}
+                                    p.steps__advantage-description !{steps.advantages[0].description[lang]}
                             .steps__advantage-logo-wrapper
                                 +icon({iconName: 'kaleydo-stroke', className: 'steps__advantage-logo'})
                             .steps__advantage
                                 .steps__advantage-icon-wrapper
                                     +icon({iconName: 'paint', className: 'steps__advantage-icon'})
                                 .steps__advantage-info
-                                    h4.steps__advantage-title Можете подобрать любые цвета с
-                                    p.steps__advantage-description красок, принтов, текстиля, пластика, еды и прочего
+                                    h4.steps__advantage-title !{steps.advantages[1].title[lang]}
+                                    p.steps__advantage-description !{steps.advantages[1].description[lang]}
                         .more-info__top-wrapper.steps__bottom-title
                             .more-info__top.more-info__top_small
                                 .more-info__icon-wrapper
                                     svg.more-info__icon
                                         use(xlink:href='./img/sprites/sprite.svg#arrow-down')
                                 h4.more-info__title
-                                    span.more-info__dotted Спасибо, теперь понятно
+                                    span.more-info__dotted !{steps.thanks[lang]}
                                 .more-info__icon-wrapper
                                     svg.more-info__icon
                                         use(xlink:href='./img/sprites/sprite.svg#arrow-down')

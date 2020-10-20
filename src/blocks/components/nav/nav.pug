@@ -1,18 +1,43 @@
 mixin nav({className = false, activeLink = '/'})
     -
-        const pageNames = [{title: 'Kaleydo EVO mini', link: 'header'},
-                          {title: 'Видео', link: 'video'},
-                          {title: 'Как использовать', link: 'steps'},
-                          {title: 'Компания Alcea', link: 'about'} ];
+        const pageNames = [
+            {
+                title: {
+                    ru: 'Kaleydo EVO mini',
+                    en: 'Kaleydo EVO mini'
+                },
+                link: 'header'
+            },
+            {
+                title: {
+                    ru: 'Видео',
+                    en: 'Video'
+                },
+                link: 'video'
+            },
+            {
+                title: {
+                    ru: 'Как использовать',
+                    en: 'How to use'
+                },
+                link: 'steps'
+            },
+            {
+                title: {
+                    ru: 'Компания Alcea',
+                    en: 'Alcea Company'
+                },
+                link: 'about'
+            } ];
     nav.nav(class=className)
         ul.nav__links
             each val, index in pageNames
                 if (val.link !== activeLink && val.link !== 'steps')
                     li.nav__item
-                        a.nav__link(href='javascript:;' data-close-modal data-anchor-timeout="1000" data-anchor=val.link)= val.title
+                        a.nav__link(href='javascript:;' data-close-modal data-anchor-timeout="1000" data-anchor=val.link)= val.title[lang]
                 else if (val.link === 'steps')
                     li.nav__item
-                        a.nav__link(href='javascript:;' data-steps-open data-close-modal data-anchor-timeout="1000" data-anchor=val.link)= val.title
+                        a.nav__link(href='javascript:;' data-steps-open data-close-modal data-anchor-timeout="1000" data-anchor=val.link)= val.title[lang]
                 else
                     li.nav__item
-                        a.nav__link.nav__link_active(href='javascript:;' data-close-modal data-anchor-timeout="1000" data-anchor=val.link)= val.title
+                        a.nav__link.nav__link_active(href='javascript:;' data-close-modal data-anchor-timeout="1000" data-anchor=val.link)= val.title[lang]

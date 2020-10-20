@@ -8,6 +8,77 @@ mixin header({className = false, is404 = false, isThanks = false})
     include ../../components/languages/languages
     include ../../components/gexagon/gexagon
 
+    -
+        const header = {
+            title: {
+                ru: 'Сканируй при помощи <mark class="mark">Kaleydo EVO mini</mark> любой цвет,',
+                en: 'Capture with <mark class="mark">Kaleydo EVO mini</mark> every color '
+            },
+            subtitle: {
+                ru: 'который привлек ваше внимание',
+                en: 'that draws your attention'
+            },
+            moreInfo: {
+                ru: 'Больше информации',
+                en: 'More information',
+
+                link: [
+                    {
+                        ru: 'Скачать BROCHURE KALEYDO_EVO_ENG - 523Kb',
+                        en: 'Download BROCHURE KALEYDO_EVO_ENG - 523Kb'
+                    },
+                    {
+                        ru: 'Скачать KALEYDO_Evo_eng - 2,61 Мб',
+                        en: 'Download KALEYDO_Evo_eng - 2,61 Mb'
+                    },
+                ]
+            }
+        };
+        const navRow = {
+            button: {
+                ru: 'Заказать',
+                en: 'Order now',
+            }
+        };
+        const topSection = {
+            description: {
+                ru: 'Устройство, которое определяет цвета с любой поверхности',
+                en: 'Instrument that measures color on any flat surface',
+            }
+        };
+        const page404 = {
+            subtitle: {
+                ru: 'К сожалению, запрошенная вами страница не существует',
+                en: 'Sorry, the page you requested does not exist',
+            },
+            backBtn: {
+                ru: 'На главную',
+                en: 'To home',
+                href: {
+                    ru: './',
+                    en: './index-en.html',
+                }
+            }
+        };
+        const pageThanks = {
+            title: {
+                ru: 'Спасибо, <br>ваш заказ принят',
+                en: 'Thank you, your order has been accepted',
+            },
+            subtitle: {
+                ru: 'Менеджер перезвонит Вам, чтобы уточнить детали доставки и оплаты.',
+                en: 'The manager will call you back to clarify the details of delivery and payment.',
+            },
+            backBtn: {
+                ru: 'На главную',
+                en: 'To home',
+                href: {
+                    ru: './',
+                    en: './index-en.html',
+                }
+            }
+        };
+
     header.header(class=className id="header")
         +parallax-stripes({className: 'header__parallax'})
         .nav-row
@@ -20,13 +91,13 @@ mixin header({className = false, is404 = false, isThanks = false})
             .nav-row__info
                 +languages({className: 'nav-row__languages'})
                 +socials({className: 'socials_small nav-row__socials'})
-                button.btn.btn_small.nav-row__button(data-offer-call) Заказать
+                button.btn.btn_small.nav-row__button(data-offer-call) !{navRow.button[lang]}
         .top-section
             .top-section__inner
                 a.top-section__logo-wrapper(href="/")
                     +icon({iconName: 'logo',
                             className: 'top-section__logo'})
-                .top-section__description Устройство, которое определяет цвета с любой поверхности
+                .top-section__description !{topSection.description[lang]}
                 .top-section__links
                     a.top-section__link(href="https://apps.apple.com/ru/app/kaleydo-evo/id1422696712" target="_blank")
                         +icon({iconName: 'applestore', className: 'top-section__link-icon', viewBoxName: '0 0 111 30'})
@@ -37,8 +108,8 @@ mixin header({className = false, is404 = false, isThanks = false})
                 .header__inner
                     .header__text
                         .header__title-block
-                            h1.header__title(class="wow animate__fadeInUp" data-wow-duration="1s") Сканируй при помощи <mark class="mark">Kaleydo EVO mini</mark> любой цвет,
-                            p.header__subtitle(class="wow animate__fadeInUp" data-wow-duration="2s") который привлек ваше внимание
+                            h1.header__title(class="wow animate__fadeInUp" data-wow-duration="1s") !{header.title[lang]}
+                            p.header__subtitle(class="wow animate__fadeInUp" data-wow-duration="2s") !{header.subtitle[lang]}
                         +advantages({className: 'header__advantages'})
                         .more-info.more-info_disabled(class="header__more-info wow animate__fadeInUp" data-wow-duration="1.5s")
                             .more-info__top-wrapper
@@ -46,15 +117,15 @@ mixin header({className = false, is404 = false, isThanks = false})
                                     .more-info__icon-wrapper
                                         +icon({iconName: 'arrow-down', className: 'more-info__icon'})
                                     h4.more-info__title
-                                        span.more-info__dotted Больше информации
+                                        span.more-info__dotted !{header.moreInfo[lang]}
                                     .more-info__icon-wrapper
                                         +icon({iconName: 'arrow-down', className: 'more-info__icon'})
                             .more-info__dropdown(data-open="false")
                                 a.download-link.more-info__link(href="./BROCHURE_KALEYDO_EVO_ENG.pdf" download)
-                                    | Скачать BROCHURE KALEYDO_EVO_ENG - 523Кб
+                                    | !{header.moreInfo.link[0][lang]}
                                     +icon({iconName: 'pdf', className: 'download-link__icon'})
                                 a.download-link.more-info__link(href="./KALEYDO_Evo_eng.pdf" download)
-                                    | Скачать KALEYDO_Evo_eng - 2,61 Мб
+                                    | !{header.moreInfo.link[1][lang]}
                                     +icon({iconName: 'pdf', className: 'download-link__icon'})
                     .header__gallery
                         +gallery({className: 'header__gallery-wrapper'})
@@ -69,20 +140,20 @@ mixin header({className = false, is404 = false, isThanks = false})
                 .not-found__inner
                     .not-found__col
                         h1.not-found__title 404
-                        h2.not-found__subtitle К сожалению, запрошенная вами страница не существует
-                        a.go-back(href="./")
+                        h2.not-found__subtitle !{page404.subtitle[lang]}
+                        a.go-back(href=page404.href[lang])
                             .go-back__icon
                                 +icon({iconName: 'arrow-left', className: 'go-back__icon-inner', viewBoxName: '0 0 18 32'})
-                            .go-back__text На главную
+                            .go-back__text !{page404.backBtn[lang]}
         else if (isThanks === true)
             .thanks__wrapper
                 .thanks__inner
                     .thanks__col
-                        h1.thanks__title Спасибо, <br>ваш заказ принят
-                        h2.thanks__subtitle Менеджер перезвонит Вам, чтобы уточнить детали доставки и оплаты.
-                        a.go-back(href="./")
+                        h1.thanks__title !{pageThanks.title[lang]}
+                        h2.thanks__subtitle !{pageThanks.subtitle[lang]}
+                        a.go-back(href=page404.href[lang])
                             .go-back__icon
                                 +icon({iconName: 'arrow-left', className: 'go-back__icon-inner', viewBoxName: '0 0 18 32'})
-                            .go-back__text На главную
+                            .go-back__text !{pageThanks.backBtn[lang]}
                     .thanks__gexagon
                         +gexagon({className: 'gexagon_thanks', isThanks: true})

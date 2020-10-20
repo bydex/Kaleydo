@@ -100,7 +100,7 @@ form.addEventListener('submit', function(e) {
     let url = `https://api.telegram.org/bot1228056654:AAGp2hpsXamGiPB3sFBe4e-c2xCs0-IBL14/sendMessage`;
     let data = {
         "chat_id": "439338402",
-        "text": `Имя: ${name.value}\n Номер телефона: ${tel.value}\n Название продукта: ${title.textContent}\n Цена: ${slide.textContent}`  ,
+        "text": `Имя: ${name.value}\nНомер телефона: ${tel.value}\nНазвание продукта: ${title.textContent}\nЦена: ${slide.textContent}`  ,
     };
 
     fetch(url, {
@@ -122,7 +122,7 @@ form.addEventListener('submit', function(e) {
         body: formData,
         method: "post",
     }).then(function() {
-        window.location = './thanks.html';
+        window.location = (lang === 'ru') ? './thanks.html' : './thanks-en.html';
         // this.querySelectorAll('.label-box__label.active').forEach((inputWrap) => {
         //     inputWrap.classList.remove('active');
         // })

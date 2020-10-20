@@ -4,18 +4,36 @@ mixin advantages({className = false})
             let advantages = [
                 {
                     icon: 'pen',
-                    title: 'Всегда под рукой',
-                    description: 'Легкий и меньше мяча для настольного тенниса'
+                    title: {
+                        ru: 'Всегда под рукой',
+                        en: 'Always in your pocket'
+                    },
+                    description: {
+                        ru: 'Легкий и меньше мяча для настольного тенниса',
+                        en: 'It’s light and smaller than a table tennis ball!',
+                    }
                 },
                 {
                     icon: 'phone',
-                    title: 'Умный',
-                    description: 'Подключается к приложению IOS и Android через Bluetooth'
+                    title: {
+                        ru: 'Умный',
+                        en: 'Smart'
+                    },
+                    description: {
+                        ru: 'Подключается к приложению IOS и Android через Bluetooth',
+                        en: 'It connects to ios and android app over bluetooth',
+                    }
                 },
                 {
                     icon: 'cup',
-                    title: 'Престижный дизайн',
-                    description: 'Является обладателем наград в конкурсах Red Dot Award и German Design Award'
+                    title: {
+                        ru: 'Престижный дизайн',
+                        en: 'Attractive design'
+                    },
+                    description: {
+                        ru: 'Подключается к приложению IOS и Android через Bluetooth',
+                        en: 'It connects to ios and android app over bluetooth',
+                    }
                 },
             ];
         ul.advantages__list
@@ -25,6 +43,6 @@ mixin advantages({className = false})
                     .advantages__img-wrapper
                         +icon({iconName: `advantage-${val.icon}`, className: 'advantages__img'})
                     .advantages__text
-                        h4.advantages__title= val.title
-                        p.advantages__description= val.description
+                        h4.advantages__title= val.title[lang]
+                        p.advantages__description= val.description[lang]
                 - i += .5;

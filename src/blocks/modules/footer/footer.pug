@@ -1,23 +1,42 @@
 mixin footer({className = false})
     include ../../components/socials/socials
+
+    -
+        const footer = {
+            description: {
+                ru: 'Устройство, которое определяет цвета с любой поверхности',
+                en: 'Instrument that measures color on any flat surface'
+            },
+            copyright: {
+                ru: 'Разработка сайта',
+                en: 'Site development'
+            },
+            links: [
+                {
+                    ru: 'Политика конфиденциальности',
+                    en: 'Privacy policy'
+                }
+            ]
+        }
+
     footer.footer(class=className)
         .footer__wrapper
             .footer__inner
                 .footer__top
                     .footer__logo
                         +icon({iconName: 'logo-only', className: 'footer__logo-inner', viewBoxName: '0 0 202 84'})
-                    p.footer__description Устройство, которое определяет цвета с любой поверхности
+                    p.footer__description !{footer.description[lang]}
                     .footer__contacts
                         a.footer__phone(href="tel:+77026631887") +7 702 663 18 87
                         a.footer__email(href="mailto:info@kaleydoevo.com") info@kaleydoevo.com
                     .footer__socials
                         +socials({className: 'socials_small'})
                     .copyright.footer__copyright
-                        p.copyright__text Разработка сайта
+                        p.copyright__text !{footer.copyright[lang]}
                         a.copyright__link(href="https://webpeppers.kz/" target="_blank").copyright__link webpeppers.kz
                     ul.footer__links
                         li.footer__links-item
-                            a(href="javascript:;" data-id="policy").footer__links-link Политика конфиденциальности
+                            a(href="javascript:;" data-id="policy").footer__links-link !{footer.links[0][lang]}
                         //- li.footer__links-item
                         //-     a(href="javascript:;" data-id="partners").footer__links-link Партнерам
                         //- li.footer__links-item

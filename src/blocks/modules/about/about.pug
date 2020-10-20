@@ -2,6 +2,36 @@ mixin about({className = false})
     include ../../components/gexagon/gexagon
     include ../../components/parallax-stripes/parallax-stripes
 
+    -
+        const about = {
+            title: {
+                ru: 'Компания Alcea',
+                en: 'Alcea Company'
+            },
+            description: {
+                ru: 'Является первым в Италии и на сегодняшний день одним из ведущих производителей промышленных лакокрасочных материалов во всем мире.',
+                en: 'It is the first in Italy and today one of the leading manufacturers of industrial paints and varnishes worldwide.'
+            },
+            subtitle: [
+                {
+                    ru: 'Alcea выбирает Kaleydo EVO mini в Италии.',
+                    en: 'Alcea chooses Kaleydo EVO mini in Italy.'
+                },
+                {
+                    ru: 'Мы продаем Kaleydo по всему миру!',
+                    en: 'We sell Kaleydo Evo mini all over the world!'
+                },
+                {
+                    ru: 'Один черный бриллиант,',
+                    en: 'One black diamond,'
+                },
+                {
+                    ru: 'бесконечное множество цветов.',
+                    en: 'infinite colors'
+                },
+            ]
+        }
+
     section.about(class=className id='about')
         +parallax-stripes({className: 'about__parallax'})
         .about__inner-wrapper
@@ -12,9 +42,9 @@ mixin about({className = false})
                             source(data-src="./img/about.mp4" type="video/mp4")
                         .about__text-inner
                             .about__title-block
-                                h1.about__title(class="wow animate__fadeInUp" data-wow-duration=".5s") Компания Alcea
-                                p.about__description(class="wow animate__fadeInUp" data-wow-duration="1s") Является первым в Италии и на сегодняшний день одним из ведущих производителей промышленных лакокрасочных материалов во всем мире.
-                            h3.about__subtitle(class="wow animate__fadeInUp" data-wow-duration="1s") Alcea выбирает Kaleydo EVO mini в Италии.
+                                h1.about__title(class="wow animate__fadeInUp" data-wow-duration=".5s") !{about.title[lang]}
+                                p.about__description(class="wow animate__fadeInUp" data-wow-duration="1s") !{about.description[lang]}
+                            h3.about__subtitle(class="wow animate__fadeInUp" data-wow-duration="1s") !{about.subtitle[0][lang]}
                             .about__companies
                                 .about__item(class="wow animate__fadeInUp" data-wow-duration="1s")
                                     +icon({iconName: 'alcea-with-logo', viewBoxName: '0 0 169 40', className: 'about__item-logo about__item-logo_alcea', viewBoxName: '0 0 169 40'})
@@ -22,9 +52,9 @@ mixin about({className = false})
                                 .about__item(class="wow animate__fadeInUp" data-wow-duration="1.5s")
                                     +icon({iconName: 'kaleydo-icon', viewBoxName: '0 0 39 30', className: 'about__item-logo about__item-logo_kaleydo', viewBoxName: '0 0 39 30'})
                                     a.about__item-link(href="https://kaleydo.alcea.com/en/" target="_blank") www.kaleydo.alcea.com
-                            h3.about__subtitle(class="wow animate__fadeInUp" data-wow-duration="1.5s") А мы продаем Kaleydo по всему миру!
+                            h3.about__subtitle(class="wow animate__fadeInUp" data-wow-duration="1.5s") !{about.subtitle[1][lang]}
                     .about__gexagon-col
                         .about__gexagon-wrapper
                             +gexagon({className: false})
-                        p.about__description(class="wow animate__fadeInUp" data-wow-duration="1s") Один черный бриллиант,
-                        h3.about__subtitle(class="wow animate__fadeInUp" data-wow-duration="1.5s") бесконечное множество цветов.
+                        p.about__description(class="wow animate__fadeInUp" data-wow-duration="1s") !{about.subtitle[2][lang]}
+                        h3.about__subtitle(class="wow animate__fadeInUp" data-wow-duration="1.5s") !{about.subtitle[3][lang]}

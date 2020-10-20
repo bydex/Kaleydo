@@ -1,5 +1,14 @@
 mixin video({className = false})
     include ../../components/parallax-stripes/parallax-stripes
+
+    -
+        const video = {
+            description: {
+                ru: 'Посмотрите видео и узнайте всё о Kaleydo EVO mini всего за 1 минуту',
+                en: 'Watch the video and find out everything about the Kaleydo EVO mini in just 1 minute'
+            }
+        };
+
     section.video(class=className id="video")
         +parallax-stripes({className: 'video__parallax'})
         .video__inner-wrapper
@@ -16,4 +25,4 @@ mixin video({className = false})
                             .video__play
                         .video__logo-wrapper(class="wow animate__fadeInUp" data-wow-duration="1.5s")
                             +icon({iconName: 'logo-only', className: 'video__logo'})
-                        p.video__description(class="wow animate__fadeInUp" data-wow-duration="1.5s") Посмотрите видео и узнайте всё о Kaleydo EVO mini всего за 1 минуту
+                        p.video__description(class="wow animate__fadeInUp" data-wow-duration="1.5s") !{video.description[lang]}
