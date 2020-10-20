@@ -52,8 +52,14 @@
             max-width: 550px;
         }
         @include h1();
+        font-weight: 50;
         margin-bottom: 16px;
         line-height: 124%;
+
+        .mark {
+            display: block;
+            font-weight: 700;
+        }
     }
     &__subtitle {
         @include xss(font-size, 16px);

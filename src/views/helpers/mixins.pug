@@ -1,5 +1,5 @@
 mixin icon({className = false, iconName, viewBoxName = false})
-    svg(class=className viewBox=viewBoxName)
+    svg(class=className viewbox=viewBoxName)
         use(xlink:href=`./img/sprites/sprite.svg#${iconName}`)
 
 mixin iconImg({className = false, iconName})
