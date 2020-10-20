@@ -3,10 +3,10 @@ mixin video({className = false})
     section.video(class=className id="video")
         +parallax-stripes({className: 'video__parallax'})
         .video__inner-wrapper
-            img.video__background(src="./img/video-img.png")
+            img.video__background(src="./img/video-img.png" alt="")
             video.video__video.lazy
-                source(data-src="./img/present.webm" type="video/webm")
-                source(data-src="./img/present.mp4" type="video/mp4")
+                source(src="" data-src="./img/present.webm" type="video/webm")
+                source(src="" data-src="./img/present.mp4" type="video/mp4")
             .video__wrapper
                 .video__inner
                     .video__col

@@ -71,7 +71,7 @@ form.addEventListener('submit', function(e) {
     e.preventDefault();
 
     let tel     = this.querySelector('input[type="tel"]'),
-        name    = this.querySelector('input[type="name"]'),
+        name    = this.querySelector('[data-input-name]'),
         slide  = form.querySelector('.gallery__info-slides .glide__slide--active [data-price]'),
         title = form.querySelector('.gallery__title_active');
 
