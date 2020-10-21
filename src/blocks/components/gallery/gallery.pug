@@ -2,9 +2,9 @@ mixin gallery({className = false})
     .gallery(class=className)
         .gallery__img-wrapper.glide
             .gallery__arrows(data-glide-el='controls')
-                button.gallery__arrow.gallery__arrow_left(data-glide-dir='<')
+                button.gallery__arrow.gallery__arrow_left(aria-label='Следующий слайд' data-glide-dir='<')
                     +icon({iconName: 'arrow-left', className: 'gallery__arrow-inner'})
-                button.gallery__arrow.gallery__arrow_right(data-glide-dir='>')
+                button.gallery__arrow.gallery__arrow_right(aria-label='Предыдущий слайд' data-glide-dir='>')
                     +icon({iconName: 'arrow-right', className: 'gallery__arrow-inner'})
             .gallery__img-track.glide__track(data-glide-el="track")
                 ul.gallery__img-slides.glide__slides
@@ -19,11 +19,11 @@ mixin gallery({className = false})
                         +icon({iconName: 'discount30', className: 'gallery__img-discount', viewBoxName: '0 0 157 208'})
                         img.gallery__img(src="./img/gallery-3.png" alt="")
             .gallery__dots(data-glide-el='controls[nav]')
-                button.gallery__dot(data-glide-dir='=0' class="wow animate__fadeInUp" data-wow-duration=".5s")
+                button.gallery__dot(aria-label='1 слайд' data-glide-dir='=0' class="wow animate__fadeInUp" data-wow-duration=".5s")
                     +icon({iconName: 'kaleydo-icon', className: 'gallery__dot-icon'})
-                button.gallery__dot(data-glide-dir='=1' class="wow animate__fadeInUp" data-wow-duration="1s")
+                button.gallery__dot(aria-label='2 слайд' data-glide-dir='=1' class="wow animate__fadeInUp" data-wow-duration="1s")
                     +icon({iconName: 'gallery-icon-2', className: 'gallery__dot-icon'})
-                button.gallery__dot(data-glide-dir='=2' class="wow animate__fadeInUp" data-wow-duration="1.5s")
+                button.gallery__dot(aria-label='3 слайд' data-glide-dir='=2' class="wow animate__fadeInUp" data-wow-duration="1.5s")
                     +icon({iconName: 'kaleydo-icon', className: 'gallery__dot-icon'})
                     |&thinsp;+
                     +icon({iconName: 'gallery-icon-2', className: 'gallery__dot-icon'})
@@ -63,7 +63,7 @@ mixin gallery({className = false})
                                     +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                 p.gallery__price-old 480.00 EUR
                                 p.gallery__price-old 600.00 EUR
-                            button.gallery__button.btn(data-offer-call) !{gallery.btn[lang]}
+                            button.gallery__button.btn(aria-label=gallery.btn[lang] data-offer-call) !{gallery.btn[lang]}
                         p.gallery__set
                             +icon({iconName: 'check', className: 'gallery__set-icon'})
                             | !{gallery.items[2].complect[lang]}

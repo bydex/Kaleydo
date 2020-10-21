@@ -91,7 +91,7 @@ mixin header({className = false, is404 = false, isThanks = false})
             .nav-row__info
                 +languages({className: 'nav-row__languages'})
                 +socials({className: 'socials_small nav-row__socials'})
-                button.btn.btn_small.nav-row__button(data-offer-call) !{navRow.button[lang]}
+                button.btn.btn_small.nav-row__button(aria-label=navRow.button[lang] data-offer-call) !{navRow.button[lang]}
         .top-section
             .top-section__inner
                 a.top-section__logo-wrapper(href="/")

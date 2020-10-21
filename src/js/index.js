@@ -97,9 +97,9 @@ form.addEventListener('submit', function(e) {
     formData.append("Цена", slide.textContent);
 
 
-    let url = `https://api.telegram.org/bot1228056654:AAGp2hpsXamGiPB3sFBe4e-c2xCs0-IBL14/sendMessage`;
+    let url = `https://api.telegram.org/bot1228448499:AAFj1QAUQyDv7atCXc-tE9RIAGyaYn5QdQI/sendMessage`;
     let data = {
-        "chat_id": "439338402",
+        "chat_id": "390547367",
         "text": `Имя: ${name.value}\nНомер телефона: ${tel.value}\nНазвание продукта: ${title.textContent}\nЦена: ${slide.textContent}`  ,
     };
 

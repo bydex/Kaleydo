@@ -2,7 +2,8 @@ extends layouts/default
 include helpers/mixins
 
 block variables
-	- const title = "Kaleydo"
+	- const title = (lang === 'ru') ? "Kaleydo | устройство для определения цвета | Kaleydoevo | Kaleydoevomini" : "Kaleydo | color detection device | Kaleydoevo | Kaleydoevomini"
+	- const description = (lang === 'ru') ? "Просканируйте нужный вам цвет и просматрите его через приложение «Kaleydo Evo mini»" : "Capture with Kaleydo EVO mini every color"
 
 block content
 	include ../blocks/modules/index/index

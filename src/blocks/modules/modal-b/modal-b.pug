@@ -51,11 +51,11 @@ mixin modal-b()
                     h2.form__title !{gallery.btn[lang]}
                     .form__dots-wrapper
                         .gallery__dots.form__dots(data-glide-el='controls[nav]')
-                            button.gallery__dot(data-glide-dir='=0')
+                            button.gallery__dot(aria-label='1 слайд' data-glide-dir='=0')
                                 +icon({iconName: 'kaleydo-icon', className: 'gallery__dot-icon'})
-                            button.gallery__dot(data-glide-dir='=1')
+                            button.gallery__dot(aria-label='2 слайд' data-glide-dir='=1')
                                 +icon({iconName: 'gallery-icon-2', className: 'gallery__dot-icon'})
-                            button.gallery__dot(data-glide-dir='=2')
+                            button.gallery__dot(aria-label='3 слайд' data-glide-dir='=2')
                                 +icon({iconName: 'kaleydo-icon', className: 'gallery__dot-icon'})
                                 | +
                                 +icon({iconName: 'gallery-icon-2', className: 'gallery__dot-icon'})
@@ -64,10 +64,10 @@ mixin modal-b()
                             h3.gallery__title !{gallery.items[1].title[lang]}
                             h3.gallery__title !{gallery.items[2].title[lang]}
                     .form__inputs
-                        .input-wrapper.input-wrapper_name.form__input
+                        label.input-wrapper.input-wrapper_name.form__input(aria-label=modalForm.placeholder[lang])
                             +icon({iconName: 'input-user', className: 'input-wrapper__icon'})
                             input.input-wrapper__input(type="text" data-input-name placeholder=modalForm.placeholder[lang])
-                        .input-wrapper.input-wrapper_tel.form__input
+                        label.input-wrapper.input-wrapper_tel.form__input(aria-label='Ваш телефон')
                             +icon({iconName: 'input-phone', className: 'input-wrapper__icon'})
                             input.input-wrapper__input(type="tel" placeholder="+7 (___) ___ __ __")
                     p.form__agreement !{modalForm.agreement[lang]}
@@ -81,7 +81,7 @@ mixin modal-b()
                                                 span(data-price) €400.00 EUR
                                                 +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                             p.gallery__price-old €500.00 EUR
-                                        button.gallery__button.btn !{gallery.btn[lang]}
+                                        button.gallery__button.btn(aria-label=gallery.btn[lang]) !{gallery.btn[lang]}
                                     p.gallery__set
                                         +icon({iconName: 'check', className: 'gallery__set-icon'})
                                         | !{gallery.items[0].complect[lang]}
@@ -92,7 +92,7 @@ mixin modal-b()
                                                 span(data-price) €80.00 EUR
                                                 +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                             p.gallery__price-old €100.00 EUR
-                                        button.gallery__button.btn !{gallery.btn[lang]}
+                                        button.gallery__button.btn(aria-label=gallery.btn[lang]) !{gallery.btn[lang]}
                                 li.gallery__info-item
                                     .gallery__info
                                         .gallery__price-wrapper
@@ -101,7 +101,7 @@ mixin modal-b()
                                                 +icon({iconName: 'coupon', className: 'gallery__price-icon'})
                                             p.gallery__price-old €480.00 EUR
                                             p.gallery__price-old €600.00 EUR
-                                        button.gallery__button.btn !{gallery.btn[lang]}
+                                        button.gallery__button.btn(aria-label=gallery.btn[lang]) !{gallery.btn[lang]}
                                     p.gallery__set
                                         +icon({iconName: 'check', className: 'gallery__set-icon'})
                                         | !{gallery.items[2].complect[lang]}
@@ -125,9 +125,9 @@ mixin modal-b()
                 .modal-text__wrapper
                     h1.modal-text__title !{policy.title[lang]}
                     p.modal-text__text !{policy.text[0][lang]}
-                    h4.moda-text__subtitle !{policy.text[1].title[lang]}
+                    h4.modal-text__subtitle !{policy.text[1].title[lang]}
                     p.modal-text__text !{policy.text[1][lang]}
-                    h4.moda-text__subtitle !{policy.text[2].title[lang]}
+                    h4.modal-text__subtitle !{policy.text[2].title[lang]}
                     p.modal-text__text !{policy.text[2][lang]}
     .modal-b(id="delivery")
         .modal-b__wrapper.modal-text
@@ -135,9 +135,9 @@ mixin modal-b()
                 .modal-text__wrapper
                     h1.modal-text__title Доставка
                     p.modal-text__text Данная Политика конфиденциальности применима к данному Сайту. После просмотра данного Сайта обязательно прочитайте текст, содержащий политику конфиденциальности используемого сайта. В случае несогласия с данной Политикой конфиденциальности прекратите использование данного Сайта. Заполнив любую из форм и используя данный Сайт, Вы тем самым выражаете согласие с условиями изложенной ниже Политики конфиденциальности. Сайт охраняет конфиденциальность посетителей сайта. Персональная информация Для того чтобы оказывать вам услуги, отвечать на вопросы, выполнять ваши пожелания и требования требуется такая информация, как ваше имя и номер телефона. САЙТ может использовать указанную информацию для ответов на запросы, а также для связи с Вами по телефону с целью предоставления информации о предлагаемых САЙТ услугах и рекламных кампаниях. При поступлении от вас обращения в виде отправки любой заполненной на сайте формы САЙТ может потребоваться связаться с Вами для получения дополнительной информации, необходимой для вашего обслуживания и ответа на интересующие вопросы. САЙТ обязуется не передавать данную информацию третьим лицам без Вашего разрешения, за исключением информации, необходимой для выполнения вашего обслуживания. Со своей стороны, Вы предоставляете САЙТ право использовать любую сообщнную Вами информацию для выполнения указанных выше действий.
-                    h4.moda-text__subtitle Безопасность
+                    h4.modal-text__subtitle Безопасность
                     p.modal-text__text Передача персональных данных в любой форме (лично, по телефону или через Интернет) всегда связана с определенным риском, поскольку не существует абсолютно надежных (защищенных от злонамеренных посягательств) систем, однако САЙТ принимает необходимые адекватные меры для минимизации риска и предотвращения несанкционированного доступа, несанкционированного использования и искажения Ваших персональных данных. Несовершеннолетние САЙТ не принимает никакой информации от лиц моложе 18 лет без согласия их родителей или законных опекунов. Кроме того, лица моложе 18 лет не могут совершать каких-либо покупок или иных юридических действий на данном Сайте без согласия родителей или законных опекунов, если это не допускается законодательством.
-                    h4.moda-text__subtitle Модификация
+                    h4.modal-text__subtitle Модификация
                     p.modal-text__text САЙТ имеет право изменять данную Политику конфиденциальности, изменять и корректировать условия доступа или запрещать доступ к сайту, а также изменять его содержание в любое время без предварительного уведомления.
     .modal-b(id="partners")
         .modal-b__wrapper.modal-text
@@ -145,7 +145,7 @@ mixin modal-b()
                 .modal-text__wrapper
                     h1.modal-text__title Партнеры
                     p.modal-text__text Данная Политика конфиденциальности применима к данному Сайту. После просмотра данного Сайта обязательно прочитайте текст, содержащий политику конфиденциальности используемого сайта. В случае несогласия с данной Политикой конфиденциальности прекратите использование данного Сайта. Заполнив любую из форм и используя данный Сайт, Вы тем самым выражаете согласие с условиями изложенной ниже Политики конфиденциальности. Сайт охраняет конфиденциальность посетителей сайта. Персональная информация Для того чтобы оказывать вам услуги, отвечать на вопросы, выполнять ваши пожелания и требования требуется такая информация, как ваше имя и номер телефона. САЙТ может использовать указанную информацию для ответов на запросы, а также для связи с Вами по телефону с целью предоставления информации о предлагаемых САЙТ услугах и рекламных кампаниях. При поступлении от вас обращения в виде отправки любой заполненной на сайте формы САЙТ может потребоваться связаться с Вами для получения дополнительной информации, необходимой для вашего обслуживания и ответа на интересующие вопросы. САЙТ обязуется не передавать данную информацию третьим лицам без Вашего разрешения, за исключением информации, необходимой для выполнения вашего обслуживания. Со своей стороны, Вы предоставляете САЙТ право использовать любую сообщнную Вами информацию для выполнения указанных выше действий.
-                    h4.moda-text__subtitle Безопасность
+                    h4.modal-text__subtitle Безопасность
                     p.modal-text__text Передача персональных данных в любой форме (лично, по телефону или через Интернет) всегда связана с определенным риском, поскольку не существует абсолютно надежных (защищенных от злонамеренных посягательств) систем, однако САЙТ принимает необходимые адекватные меры для минимизации риска и предотвращения несанкционированного доступа, несанкционированного использования и искажения Ваших персональных данных. Несовершеннолетние САЙТ не принимает никакой информации от лиц моложе 18 лет без согласия их родителей или законных опекунов. Кроме того, лица моложе 18 лет не могут совершать каких-либо покупок или иных юридических действий на данном Сайте без согласия родителей или законных опекунов, если это не допускается законодательством.
-                    h4.moda-text__subtitle Модификация
+                    h4.modal-text__subtitle Модификация
                     p.modal-text__text САЙТ имеет право изменять данную Политику конфиденциальности, изменять и корректировать условия доступа или запрещать доступ к сайту, а также изменять его содержание в любое время без предварительного уведомления.
