@@ -193,6 +193,10 @@
             duration: .5s;
         }
     }
+    &__item-link-top {
+        color: $yellow;
+        fill: $yellow;
+    }
     &__item-link:hover {
         text-decoration-color: transparent;
     }

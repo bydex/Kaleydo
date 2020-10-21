@@ -48,6 +48,9 @@
         @include size-sm(12);
     }
     &__title {
+        @media (max-width: $break_xs) {
+            margin-bottom: 4px;
+        }
         @media (max-width: $break_md) {
             max-width: 550px;
         }
