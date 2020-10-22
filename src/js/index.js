@@ -14,8 +14,10 @@ import WOW from 'wow.js';
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 window.addEventListener('resize', () => {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+    if (window.innerWidth > 480) {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
 });
 
 
@@ -338,9 +340,9 @@ if (!!videoWrapper) {
 
 
     document.addEventListener("DOMContentLoaded", function() {
-        const isSafari = !!navigator.platform.match(/iPhone|iPod|iPad/);
+        const isMobile = window.innerWidth < 480;
 
-        if (isSafari) {
+        if (isMobile) {
             let aboutVideo = document.querySelector("#about video");
             if (aboutVideo) {
                 for (var source in aboutVideo.children) {

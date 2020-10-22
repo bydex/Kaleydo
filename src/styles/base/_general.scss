@@ -770,6 +770,11 @@ ul {
         text-align: center;
     }
     &__img-item {
+        @media (max-width: $break_xs) {
+            transition: {
+                property: none;
+            }
+        }
         @media (max-width: $break_md) {
             opacity: 0;
         }
@@ -983,6 +988,11 @@ ul {
 
 
 .gallery__img-item.glide__slide--active {
+    @media (max-width: $break_xs) {
+        transition: {
+            property: opacity;
+        }
+    }
     @media (max-width: $break_md) {
         opacity: 1;
     }
