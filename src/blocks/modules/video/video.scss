@@ -24,7 +24,10 @@
         }
     }
     &:before {
-        content: "";
+        @media (max-width: $break_xss) {
+            content: '';
+        }
+        content: none;
         position: absolute;
         z-index: 2;
         bottom: 100%;

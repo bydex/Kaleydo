@@ -1116,6 +1116,7 @@ ul {
 // BLOCK $input-wrapper
 .input-wrapper {
     position: relative;
+    display: block;
 
     &__icon {
         position: absolute;

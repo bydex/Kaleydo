@@ -338,34 +338,53 @@ if (!!videoWrapper) {
 
 
     document.addEventListener("DOMContentLoaded", function() {
-      var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+        const isSafari = !!navigator.platform.match(/iPhone|iPod|iPad/);
 
-      if ("IntersectionObserver" in window) {
-        var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-          entries.forEach(function(video) {
-            if (video.isIntersecting) {
-              for (var source in video.target.children) {
-                var videoSource = video.target.children[source];
-                if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-                  videoSource.src = videoSource.dataset.src;
+        if (isSafari) {
+            let aboutVideo = document.querySelector("#about video");
+            if (aboutVideo) {
+                for (var source in aboutVideo.children) {
+                    var videoSource = aboutVideo.children[source];
+                    if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                    videoSource.src = videoSource.dataset.src;
+                    }
                 }
-              }
-
-              video.target.load();
-              video.target.classList.remove("lazy");
-              lazyVideoObserver.unobserve(video.target);
-
-              if (document.querySelector("#about video") === video.target) {
-                    video.target.play();
-              }
+                aboutVideo.load();
+                aboutVideo.classList.remove("lazy");
+                aboutVideo.play();
             }
-          });
-        });
+        }
 
-        lazyVideos.forEach(function(lazyVideo) {
-          lazyVideoObserver.observe(lazyVideo);
-        });
-      }
+
+
+        var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+
+        if ("IntersectionObserver" in window) {
+            var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(video) {
+                if (video.isIntersecting) {
+                for (var source in video.target.children) {
+                    var videoSource = video.target.children[source];
+                    if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                    videoSource.src = videoSource.dataset.src;
+                    }
+                }
+
+                video.target.load();
+                video.target.classList.remove("lazy");
+                lazyVideoObserver.unobserve(video.target);
+
+                if (document.querySelector("#about video") === video.target) {
+                    video.target.play();
+                }
+                }
+            });
+            });
+
+            lazyVideos.forEach(function(lazyVideo) {
+            lazyVideoObserver.observe(lazyVideo);
+            });
+        }
     });
 }
 

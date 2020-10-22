@@ -132,8 +132,8 @@ mixin steps({className = false})
                             li.steps__slide.steps__slide_active
                                 img(class="steps__slide-img" src="./img/steps-slide-1.jpg" alt="")
                             li.steps__slide
-                                video.steps__slide-img(loop muted playislie autoplay)
-                                    source(src="./img/steps-slide-2.mp4")
+                                video.steps__slide-img.lazy(loop muted playsinline autoplay)
+                                    source(data-src="./img/steps-slide-2.mp4")
                             li.steps__slide
                                 img(class="steps__slide-img" src="./img/steps-slide-3.jpg" alt="")
                             li.steps__slide
