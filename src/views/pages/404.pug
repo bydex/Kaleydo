@@ -4,7 +4,7 @@ include ../helpers/mixins
 block variables
 	- const title = (lang === 'ru') ? "Kaleydo - page not found" : "Kaleydo - страница не найдена"
 	- const description = (lang === 'ru') ? "Просканируйте нужный вам цвет и просматрите его через приложение «Kaleydo Evo mini»" : "Capture with Kaleydo EVO mini every color"
-
+	- const is404 = true;
 block content
 	include ../../blocks/modules/404/404
 	+404({})

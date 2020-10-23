@@ -14,10 +14,8 @@ import WOW from 'wow.js';
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 window.addEventListener('resize', () => {
-    if (window.innerWidth > 480) {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-    }
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
 
@@ -340,22 +338,22 @@ if (!!videoWrapper) {
 
 
     document.addEventListener("DOMContentLoaded", function() {
-        const isMobile = window.innerWidth < 480;
+        // const isMobile = window.innerWidth < 480;
 
-        if (isMobile) {
-            let aboutVideo = document.querySelector("#about video");
-            if (aboutVideo) {
-                for (var source in aboutVideo.children) {
-                    var videoSource = aboutVideo.children[source];
-                    if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-                    videoSource.src = videoSource.dataset.src;
-                    }
-                }
-                aboutVideo.load();
-                aboutVideo.classList.remove("lazy");
-                aboutVideo.play();
-            }
-        }
+        // if (isMobile) {
+        //     let aboutVideo = document.querySelector("#about video");
+        //     if (aboutVideo) {
+        //         for (var source in aboutVideo.children) {
+        //             var videoSource = aboutVideo.children[source];
+        //             if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+        //             videoSource.src = videoSource.dataset.src;
+        //             }
+        //         }
+        //         aboutVideo.load();
+        //         aboutVideo.classList.remove("lazy");
+        //         aboutVideo.play();
+        //     }
+        // }
 
 
 
